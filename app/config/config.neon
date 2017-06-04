@@ -1,0 +1,10 @@
+application:
+	scanDirs: off
+	mapping:
+		*: App\*Module\Presenters\*Presenter
+
+routing:
+	routes:
+		'[<module>/]<presenter>':
+			presenter: Homepage
+			action: default
