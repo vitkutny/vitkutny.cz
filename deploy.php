@@ -28,9 +28,9 @@ task('php-fpm:restart', function () {
 	run('service php7.1-fpm restart');
 });
 
-#task('build', [
-#	'deploy:vendors',
-#]);
+task('build', [
+	'deploy:vendors',
+]);
 
 task('deploy', [
 	'deploy:prepare',
@@ -39,7 +39,7 @@ task('deploy', [
 	'deploy:update_code',
 	'deploy:shared',
 	'deploy:writable',
-	#'build',
+	'build',
 	'deploy:clear_paths',
 	'deploy:symlink',
 	'php-fpm:restart',
