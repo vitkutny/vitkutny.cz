@@ -8,3 +8,10 @@ routing:
 		'[<module>/]<presenter>':
 			presenter: Homepage
 			action: default
+
+http:
+	csp:
+		default-src: [self]
+		script-src: [nonce]
+		object-src: [none]
+		base-uri: [none]
