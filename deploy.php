@@ -28,8 +28,18 @@ task('php-fpm:restart', function () {
 	run('service php7.1-fpm restart');
 });
 
+task('yarn', function () {
+	run('cd {{release_path}} && yarn install --ignore-engines');
+});
+
+task('webpack', function () {
+	run('cd {{release_path}} && yarn run webpack');
+});
+
 task('build', [
 	'deploy:vendors',
+	'yarn',
+	'webpack',
 ]);
 
 task('deploy', [
