@@ -20,7 +20,7 @@ server {
 	listen [::]:443 ssl;
 	include snippets/snakeoil.conf;
 
-	root /var/www/vagrant.vitkutny.cz/www;
+	root /var/www/vagrant.vitkutny.cz/current/www;
 	index index.php;
 	server_name vagrant.vitkutny.cz;
 

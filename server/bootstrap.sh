@@ -11,9 +11,10 @@ apt-get install -y \
 	php-pgsql \
 	php-sqlite3
 
-if ! [ -L "/var/www/vagrant.vitkutny.cz" ]; then
-	rm -rf "/var/www/vagrant.vitkutny.cz"
-	ln -fs "/vagrant" "/var/www/vagrant.vitkutny.cz"
+if ! [ -L "/var/www/vagrant.vitkutny.cz/current" ]; then
+	mkdir -p "/var/www/vagrant.vitkutny.cz"
+	rm -rf "/var/www/vagrant.vitkutny.cz/current"
+	ln -fs "/vagrant" "/var/www/vagrant.vitkutny.cz/current"
 fi
 
 if ! [ -L "/etc/nginx/sites-enabled/vagrant.vitkutny.cz" ]; then
@@ -21,3 +22,6 @@ if ! [ -L "/etc/nginx/sites-enabled/vagrant.vitkutny.cz" ]; then
 	ln -fs "/vagrant/server/etc/nginx/sites-available/vagrant.vitkutny.cz" "/etc/nginx/sites-enabled/vagrant.vitkutny.cz"
 fi
 
+curl -LOs "https://deployer.org/deployer.phar"
+mv deployer.phar "/usr/local/bin/dep"
+chmod +x "/usr/local/bin/dep"
