@@ -3,8 +3,10 @@
 <div class="jumbotron">
 	<div class="container">
 		<div class="text-center">
-			<img src="https://s.gravatar.com/avatar/e20f4c60c27271193eb2ae612401ccd9?s=200"
-				 class="img-thumbnail rounded-circle">
+			<img n:if="$contactAvatar = $contact->getAvatar()" src="{$contactAvatar->getLink()}"
+															   alt="{$contact->getName()}"
+															   class="img-thumbnail rounded-circle"
+															   style="width:{$contactAvatar->getSize()}px;height:{$contactAvatar->getSize()}px;">
 			<h1 class="display-3">{$contact->getName()}</h1>
 			<p class="lead">{$contact->getPosition()}</p>
 			<p>

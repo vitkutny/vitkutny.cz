@@ -18,6 +18,10 @@ final class Contact
 	 */
 	private $address;
 	/**
+	 * @var ContactAvatar
+	 */
+	private $avatar;
+	/**
 	 * @var ContactLink[]
 	 */
 	private $links = [];
@@ -46,6 +50,18 @@ final class Contact
 	public function getAddress(): string
 	{
 		return $this->address;
+	}
+
+
+	public function getAvatar(): ?ContactAvatar
+	{
+		return $this->avatar;
+	}
+
+
+	public function setAvatar(ContactAvatar $avatar): void
+	{
+		$this->avatar = $avatar;
 	}
 
 
