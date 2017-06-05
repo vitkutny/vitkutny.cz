@@ -15,3 +15,6 @@ http:
 		script-src: [nonce]
 		object-src: [none]
 		base-uri: [none]
+
+extensions:
+	version: VitKutny\Version\Extension

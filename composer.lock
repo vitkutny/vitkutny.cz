@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "d0fdd9e53610ef89361a5953b599859f",
+    "content-hash": "0783998622c751cf1d2cc0f8d43104fd",
     "packages": [
         {
             "name": "latte/latte",
@@ -240,6 +240,75 @@
             "time": "2017-03-14 17:57:32"
         },
         {
+            "name": "nette/caching",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/nette/caching.git",
+                "reference": "5da1afb8186169876fadcd00a0cfe956b71f67ee"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/nette/caching/zipball/5da1afb8186169876fadcd00a0cfe956b71f67ee",
+                "reference": "5da1afb8186169876fadcd00a0cfe956b71f67ee",
+                "shasum": ""
+            },
+            "require": {
+                "nette/finder": "^2.3 || ~3.0.0",
+                "nette/utils": "^2.4 || ~3.0.0",
+                "php": ">=7.1"
+            },
+            "conflict": {
+                "nette/nette": "<2.2"
+            },
+            "require-dev": {
+                "latte/latte": "^2.4",
+                "nette/di": "^2.4 || ~3.0.0",
+                "nette/tester": "^2.0",
+                "tracy/tracy": "^2.4"
+            },
+            "suggest": {
+                "ext-pdo_sqlite": "to use SQLiteStorage or SQLiteJournal"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "3.0-dev"
+                }
+            },
+            "autoload": {
+                "classmap": [
+                    "src/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause",
+                "GPL-2.0",
+                "GPL-3.0"
+            ],
+            "authors": [
+                {
+                    "name": "David Grudl",
+                    "homepage": "https://davidgrudl.com"
+                },
+                {
+                    "name": "Nette Community",
+                    "homepage": "https://nette.org/contributors"
+                }
+            ],
+            "description": "⏱ Caching library with easy-to-use API and many cache backends.",
+            "homepage": "https://nette.org",
+            "keywords": [
+                "cache",
+                "journal",
+                "memcached",
+                "nette",
+                "sqlite"
+            ],
+            "time": "2017-03-14 17:57:08"
+        },
+        {
             "name": "nette/component-model",
             "version": "dev-master",
             "source": {
@@ -368,6 +437,68 @@
                 "static"
             ],
             "time": "2017-04-25 16:15:46"
+        },
+        {
+            "name": "nette/finder",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/nette/finder.git",
+                "reference": "13f42b4d40c87557455232313b03413ad8e5e9d5"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/nette/finder/zipball/13f42b4d40c87557455232313b03413ad8e5e9d5",
+                "reference": "13f42b4d40c87557455232313b03413ad8e5e9d5",
+                "shasum": ""
+            },
+            "require": {
+                "nette/utils": "^2.4 || ~3.0.0",
+                "php": ">=7.0"
+            },
+            "conflict": {
+                "nette/nette": "<2.2"
+            },
+            "require-dev": {
+                "nette/tester": "^2.0",
+                "tracy/tracy": "^2.3"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "3.0-dev"
+                }
+            },
+            "autoload": {
+                "classmap": [
+                    "src/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause",
+                "GPL-2.0",
+                "GPL-3.0"
+            ],
+            "authors": [
+                {
+                    "name": "David Grudl",
+                    "homepage": "https://davidgrudl.com"
+                },
+                {
+                    "name": "Nette Community",
+                    "homepage": "https://nette.org/contributors"
+                }
+            ],
+            "description": "🔍 Finder: find files and directories with an intuitive API.",
+            "homepage": "https://nette.org",
+            "keywords": [
+                "filesystem",
+                "glob",
+                "iterator",
+                "nette"
+            ],
+            "time": "2017-03-05 23:29:27"
         },
         {
             "name": "nette/http",
@@ -709,12 +840,50 @@
                 "profiler"
             ],
             "time": "2017-06-01 20:51:22"
+        },
+        {
+            "name": "vitkutny/version",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/vitkutny/version.git",
+                "reference": "8627df8909392c59c2c94414199527983fe6a0e1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/vitkutny/version/zipball/8627df8909392c59c2c94414199527983fe6a0e1",
+                "reference": "8627df8909392c59c2c94414199527983fe6a0e1",
+                "shasum": ""
+            },
+            "require": {
+                "nette/http": ">=2.0",
+                "php": ">=7.0"
+            },
+            "suggest": {
+                "nette/caching": "Caching support",
+                "nette/di": "Register filter using extension"
+            },
+            "type": "library",
+            "extra": {
+                "extensions": {
+                    "vitkutny.version": "VitKutny\\Version\\Extension"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "VitKutny\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "time": "2017-06-05 06:31:53"
         }
     ],
     "packages-dev": [],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": [],
+    "stability-flags": {
+        "vitkutny/version": 20
+    },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {

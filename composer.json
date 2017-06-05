@@ -7,7 +7,9 @@
 		"nette/bootstrap": "^3.0",
 		"nette/di": "^3.0",
 		"latte/latte": "^3.0",
-		"tracy/tracy": "^2.4"
+		"tracy/tracy": "^2.4",
+		"nette/caching": "^3.0",
+		"vitkutny/version": "dev-master"
 	},
 	"minimum-stability": "dev",
 	"autoload": {
