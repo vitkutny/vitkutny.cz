@@ -1,3 +1,25 @@
 {block content}
 
-Hello world!
+<div class="jumbotron">
+	<div class="container">
+		<div class="text-center">
+			<img src="https://s.gravatar.com/avatar/e20f4c60c27271193eb2ae612401ccd9?s=200"
+				 class="img-thumbnail rounded-circle">
+			<h1 class="display-3">{$contact->getName()}</h1>
+			<p class="lead">{$contact->getPosition()}</p>
+			<p>
+				<i class="fa fa-2x fa-map-marker"></i>
+				{$contact->getAddress()}
+			</p>
+			<hr class="jumbotron-hr">
+			<div class="row justify-content-center" n:if="$contactLinks = $contact->getLinks()">
+				<p class="col col-auto" n:foreach="$contactLinks as $contactLink">
+					<i class="fa fa-2x fa-{$contactLink->getIcon()}"></i>
+					<a href="{$contactLink->getLink()|nocheck}">
+						{$contactLink->getName()}
+					</a>
+				</p>
+			</div>
+		</div>
+	</div>
+</div>
