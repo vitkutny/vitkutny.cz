@@ -3,9 +3,12 @@ var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var webpack = require('webpack');
 
 module.exports = {
-	entry: './assets/index.js',
+	entry: {
+		'index.js': './assets/index.js',
+		'index.css': './assets/index.scss',
+	},
 	output: {
-		filename: 'index.js',
+		filename: '[name]',
 		path: path.resolve(__dirname, 'www/assets')
 	},
 	module: {
@@ -23,9 +26,15 @@ module.exports = {
 								}
 							}
 						},
-						{loader: 'sass-loader'}
+						{loader: 'resolve-url-loader'},
+						{loader: 'sass-loader', options: {sourceMap: true}}
 					]
 				})
+			}, {
+				test: /\.(woff|woff2|eot|ttf|otf|svg)$/,
+				use: [
+					'file-loader'
+				]
 			}
 		]
 	},
