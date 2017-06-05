@@ -33,7 +33,7 @@ task('yarn', function () {
 });
 
 task('webpack', function () {
-	run('cd {{release_path}} && yarn run webpack');
+	run('cd {{release_path}} && yarn run webpack --production');
 });
 
 task('build', [
