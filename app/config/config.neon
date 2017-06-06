@@ -26,6 +26,7 @@ http:
 	csp:
 		default-src: [self]
 		img-src: [self, 'data:', s.gravatar.com]
+		style-src: [self, unsafe-inline]
 		script-src: [nonce]
 		object-src: [none]
 		base-uri: [none]
