@@ -30,5 +30,8 @@ http:
 		object-src: [none]
 		base-uri: [none]
 
+latte:
+	strictTypes: on
+
 extensions:
 	version: VitKutny\Version\Extension
