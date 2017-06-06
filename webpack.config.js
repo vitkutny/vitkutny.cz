@@ -17,7 +17,7 @@ module.exports = {
 				test: /.(scss)$/,
 				use: ExtractTextPlugin.extract({
 					use: [
-						{loader: 'css-loader'},
+						{loader: 'css-loader', options: {minimize: true}},
 						{
 							loader: 'postcss-loader',
 							options: {
@@ -40,6 +40,7 @@ module.exports = {
 	},
 	plugins: [
 		new ExtractTextPlugin('index.css'),
+		new webpack.optimize.UglifyJsPlugin(),
 		new webpack.ProvidePlugin({
 			$: 'jquery',
 			jQuery: 'jquery',
