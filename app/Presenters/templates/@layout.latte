@@ -36,6 +36,15 @@
 	</div>
 </div>
 
+<div class="top-menu-container" n:if=" ! $presenter->isLinkCurrent(':Homepage:')">
+	<p class="top-menu-inner-container text-center">
+		<a n:href=":Homepage:" class="btn btn-primary">
+			<i class="fa fa-2x fa-home"></i>
+			Home
+		</a>
+	</p>
+</div>
+
 <div class="container">
 	{include content}
 </div>

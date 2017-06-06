@@ -2,3 +2,13 @@
 @import '~bootstrap/scss/bootstrap';
 @import '~bootswatch/lumen/bootswatch';
 @import '~font-awesome/scss/font-awesome';
+
+.top-menu-container {
+  position: relative;
+
+  .top-menu-inner-container {
+    position: absolute;
+    top: - $jumbotron-padding - $btn-padding-y - $btn-line-height;
+    width: 100%;
+  }
+}
