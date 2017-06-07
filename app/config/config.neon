@@ -3,7 +3,7 @@ services:
 		class: App\Contact\Contact
 		arguments: ['Vít Kutný', 'Web developer', 'Brno, Czech Republic']
 		setup:
-			- setAvatar(App\Contact\ContactAvatar('https://s.gravatar.com/avatar/e20f4c60c27271193eb2ae612401ccd9?s=150', 150))
+			- setAvatar(App\Contact\ContactAvatar('https://s.gravatar.com/avatar/e20f4c60c27271193eb2ae612401ccd9?s=150'))
 			- addLink(App\Contact\ContactLink('LinkedIn', 'https://www.linkedin.com/in/vitkutny', 'linkedin'))
 			- addLink(App\Contact\ContactLink('Twitter', 'https://twitter.com/vitkutny', 'twitter'))
 			- addLink(App\Contact\ContactLink('GitHub', 'https://github.com/vitkutny', 'github'))
@@ -29,7 +29,6 @@ http:
 	csp:
 		default-src: [self]
 		img-src: [self, 'data:', s.gravatar.com]
-		style-src: [self, unsafe-inline]
 		script-src: [nonce]
 		object-src: [none]
 		base-uri: [none]

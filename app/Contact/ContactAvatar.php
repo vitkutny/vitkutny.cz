@@ -9,28 +9,17 @@ final class ContactAvatar
 	 * @var string
 	 */
 	private $link;
-	/**
-	 * @var int
-	 */
-	private $size;
 
 
-	public function __construct(string $link, int $size)
+	public function __construct(string $link)
 	{
 		$this->link = $link;
-		$this->size = $size;
 	}
 
 
 	public function getLink(): string
 	{
 		return $this->link;
-	}
-
-
-	public function getSize(): int
-	{
-		return $this->size;
 	}
 
 }

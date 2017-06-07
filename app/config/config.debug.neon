@@ -1,0 +1,3 @@
+http:
+	csp:
+		style-src: [self, unsafe-inline]

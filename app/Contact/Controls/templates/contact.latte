@@ -3,8 +3,7 @@
 <img n:if="$contactAvatar = $contact->getAvatar()"
 		src="{$contactAvatar->getLink()}"
 		alt="{$contact->getName()}"
-		class="img-thumbnail rounded-circle"
-		style="width:{$contactAvatar->getSize()}px;height:{$contactAvatar->getSize()}px;">
+		class="img-thumbnail rounded-circle contact-avatar">
 <p>
 	<i class="fa fa-2x fa-map-marker"></i>
 	{$contact->getAddress()}
