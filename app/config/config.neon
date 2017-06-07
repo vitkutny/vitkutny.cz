@@ -29,6 +29,8 @@ http:
 	csp:
 		default-src: [self]
 		img-src: [self, 'data:', s.gravatar.com]
+		style-src: [self, fonts.googleapis.com]
+		font-src: [self, fonts.gstatic.com]
 		script-src: [nonce]
 		object-src: [none]
 		base-uri: [none]
