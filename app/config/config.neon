@@ -11,12 +11,7 @@ services:
 			- addLink(App\Contact\ContactLink('vitkutny@icloud.com', 'mailto:vitkutny@icloud.com', 'envelope'))
 			- addLink(App\Contact\ContactLink('+420 605 531 830', 'tel:+420605531830', 'phone'))
 
-	latte.templateFactory:
-		autowired: off
-
-	-
-		class: App\Template\TemplateFactory
-		arguments: [@latte.templateFactory]
+	- App\Contact\Controls\ContactControlFactory
 
 application:
 	errorPresenter: Error

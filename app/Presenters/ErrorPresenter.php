@@ -8,6 +8,9 @@ use Nette\Application\UI\Presenter;
 final class ErrorPresenter extends Presenter
 {
 
+	use BasePresenter;
+
+
 	public function renderDefault(\Throwable $exception)
 	{
 		$file = sprintf('%s/templates/Error/%d.latte', __DIR__, $exception->getCode());
