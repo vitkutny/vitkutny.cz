@@ -1,17 +1,5 @@
 services:
 	-
-		class: App\Contact\Contact
-		arguments: ['Vít Kutný', 'Web developer', 'Brno, Czech Republic']
-		setup:
-			- setAvatar(App\Contact\ContactAvatar('https://s.gravatar.com/avatar/e20f4c60c27271193eb2ae612401ccd9?s=150'))
-			- addLink(App\Contact\ContactLink('LinkedIn', 'https://www.linkedin.com/in/vitkutny', 'linkedin'))
-			- addLink(App\Contact\ContactLink('Twitter', 'https://twitter.com/vitkutny', 'twitter'))
-			- addLink(App\Contact\ContactLink('GitHub', 'https://github.com/vitkutny', 'github'))
-			- addLink(App\Contact\ContactLink('Facebook', 'https://facebook.com/vitkutny', 'facebook'))
-			- addLink(App\Contact\ContactLink('vit@kutny.cz', 'mailto:vit@kutny.cz', 'envelope'))
-			- addLink(App\Contact\ContactLink('+420 605 531 830', 'tel:+420605531830', 'phone'))
-
-	-
 		class: Parsedown
 		setup:
 			- setMarkupEscaped(true)
@@ -50,4 +38,5 @@ extensions:
 
 includes:
 	- ../BlogModule/config/config.neon
+	- ../ContactModule/config/config.neon
 	- ../DisqusModule/config/config.neon

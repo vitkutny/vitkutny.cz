@@ -2,7 +2,7 @@
 
 namespace App\Presenters;
 
-use App\Contact\Contact;
+use App\ContactModule\Contact;
 use App\DisqusModule\Controls\DisqusControl;
 use App\DisqusModule\Controls\DisqusControlFactory;
 use Nette\Bridges\ApplicationLatte\Template;

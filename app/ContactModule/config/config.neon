@@ -1,0 +1,12 @@
+services:
+	-
+		class: App\ContactModule\Contact
+		arguments: ['Vít Kutný', 'Web developer', 'Brno, Czech Republic']
+		setup:
+			- setAvatar(App\ContactModule\ContactAvatar('https://s.gravatar.com/avatar/e20f4c60c27271193eb2ae612401ccd9?s=150'))
+			- addLink(App\ContactModule\ContactLink('LinkedIn', 'https://www.linkedin.com/in/vitkutny', 'linkedin'))
+			- addLink(App\ContactModule\ContactLink('Twitter', 'https://twitter.com/vitkutny', 'twitter'))
+			- addLink(App\ContactModule\ContactLink('GitHub', 'https://github.com/vitkutny', 'github'))
+			- addLink(App\ContactModule\ContactLink('Facebook', 'https://facebook.com/vitkutny', 'facebook'))
+			- addLink(App\ContactModule\ContactLink('vit@kutny.cz', 'mailto:vit@kutny.cz', 'envelope'))
+			- addLink(App\ContactModule\ContactLink('+420 605 531 830', 'tel:+420605531830', 'phone'))
