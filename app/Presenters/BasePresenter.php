@@ -3,8 +3,8 @@
 namespace App\Presenters;
 
 use App\Contact\Contact;
-use App\Contact\Controls\ContactControl;
-use App\Contact\Controls\ContactControlFactory;
+use App\DisqusModule\Controls\DisqusControl;
+use App\DisqusModule\Controls\DisqusControlFactory;
 
 
 trait BasePresenter
@@ -15,20 +15,32 @@ trait BasePresenter
 	 */
 	private $contact;
 	/**
-	 * @var ContactControlFactory
+	 * @var DisqusControlFactory
 	 */
-	private $contactControlFactory;
+	private $disqusControlFactory;
 
 
-	public function injectContact(Contact $contact, ContactControlFactory $contactControlFactory): void
+	public function injectContact(Contact $contact): void
 	{
 		$this->contact = $contact;
-		$this->contactControlFactory = $contactControlFactory;
 	}
 
 
-	protected function createComponentContact(): ContactControl
+	public function injectDisqus(DisqusControlFactory $disqusControlFactory): void
 	{
-		return $this->contactControlFactory->create($this->contact);
+		$this->disqusControlFactory = $disqusControlFactory;
+	}
+
+
+	protected function beforeRender(): void
+	{
+		$template = $this->getTemplate();
+		$template->contact = $this->contact;
+	}
+
+
+	protected function createComponentDisqus(): DisqusControl
+	{
+		return $this->disqusControlFactory->create();
 	}
 }

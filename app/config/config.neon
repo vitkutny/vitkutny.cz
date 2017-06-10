@@ -11,7 +11,14 @@ services:
 			- addLink(App\Contact\ContactLink('vit@kutny.cz', 'mailto:vit@kutny.cz', 'envelope'))
 			- addLink(App\Contact\ContactLink('+420 605 531 830', 'tel:+420605531830', 'phone'))
 
-	- App\Contact\Controls\ContactControlFactory
+	-
+		class: Parsedown
+		setup:
+			- setMarkupEscaped(true)
+
+	nette.latteFactory:
+		setup:
+			- addFilter(parsedown, [@\Parsedown, text])
 
 application:
 	errorPresenter: Error
@@ -40,3 +47,7 @@ latte:
 
 extensions:
 	version: VitKutny\Version\Extension
+
+includes:
+	- ../BlogModule/config/config.neon
+	- ../DisqusModule/config/config.neon

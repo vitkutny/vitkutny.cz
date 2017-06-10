@@ -1,0 +1,18 @@
+{layout none}
+{contentType application/xml}
+<?xml version="1.0" encoding="UTF-8"?>
+
+<rss version="2.0">
+	<channel>
+		<title>{$contact->getName()}</title>
+		<link>{link //:Homepage:}</link>
+		<description>{$contact->getPosition()}</description>
+
+		<item n:foreach="$posts as $post">
+			<title>{$post->getTitle()}</title>
+			<link>{link //:Blog:Post: $post}</link>
+			<description>{$post->getPerex()}</description>
+			<pubDate>{$post->getDatetime()|date:'D, d M Y H:i:s O'}</pubDate>
+		</item>
+	</channel>
+</rss>

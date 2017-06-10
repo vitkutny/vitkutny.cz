@@ -1,0 +1,12 @@
+<div class="row justify-content-center">
+	<p class="col col-auto">
+		<i class="fa fa-calendar"></i>
+		<time datetime="{$post->getDatetime()|date:'Y-m-d H:i'}">{$post->getDatetime()|date:'j. n. Y'}</time>
+	</p>
+	<p class="col col-auto">
+		<i class="fa fa-comments"></i>
+		<a href="{plink :Blog:Post:#disqus_thread $post}" data-disqus-identifier="{$post->getId()}">
+			0 Comments
+		</a>
+	</p>
+</div>

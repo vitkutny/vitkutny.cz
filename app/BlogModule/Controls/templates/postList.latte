@@ -1,0 +1,12 @@
+<div class="text-center" n:inner-foreach="$posts as $post">
+	<h2>
+		<a href="{plink :Blog:Post: $post}">
+			{$post->getTitle()}
+		</a>
+	</h2>
+	<p class="lead">
+		{$post->getPerex()}
+	</p>
+	{control postInfo $post}
+	<hr n:sep>
+</div>

@@ -1,0 +1,17 @@
+services:
+	-
+		class: App\BlogModule\Post\PostRepository
+		arguments: [%wwwDir%/blog]
+
+	- App\BlogModule\Controls\PostListControlFactory
+	- App\BlogModule\Controls\PostInfoControlFactory
+
+routing:
+	routes:
+		'blog/<post>':
+			post:
+				filterIn: [@App\BlogModule\Post\PostRepository, getById]
+				filterOut: null
+			module: Blog
+			presenter: Post
+			action: default

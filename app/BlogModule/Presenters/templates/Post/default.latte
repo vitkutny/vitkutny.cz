@@ -1,0 +1,13 @@
+{block title}
+	{$post->getTitle()}
+{/block}
+{block description}
+	{$post->getPerex()}
+{/block}
+{block header}
+	{control postInfo $post}
+{/block}
+{block blog-content}
+{$post->getContent()|noescape}
+
+{control disqus:thread $post->getId()}

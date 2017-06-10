@@ -1,0 +1,18 @@
+parameters:
+	disqus:
+		site: vitkutny
+
+services:
+	-
+		class: App\DisqusModule\Configuration
+		arguments: [%disqus.site%]
+
+	- App\DisqusModule\Controls\DisqusControlFactory
+
+http:
+	csp:
+		img-src: [referrer.disqus.com, c.disquscdn.com]
+		style-src: [c.disquscdn.com, unsafe-inline]
+		script-src: [c.disquscdn.com, unsafe-eval, undefined.disqus.com, %disqus.site%.disqus.com]
+		connect-src: [links.services.disqus.com]
+		child-src: [disqus.com]

@@ -11,7 +11,7 @@ final class ErrorPresenter extends Presenter
 	use BasePresenter;
 
 
-	public function renderDefault(\Throwable $exception)
+	public function renderDefault(\Throwable $exception): void
 	{
 		$file = sprintf('%s/templates/Error/%d.latte', __DIR__, $exception->getCode());
 		if (is_file($file)) {

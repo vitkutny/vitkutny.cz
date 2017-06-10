@@ -13,6 +13,8 @@ apt-get install -y \
 	nginx \
 	postgresql \
 	php-fpm \
+	php-xml \
+	php-mbstring \
 	php-pgsql \
 	php-sqlite3
 
