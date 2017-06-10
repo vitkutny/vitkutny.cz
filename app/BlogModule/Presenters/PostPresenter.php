@@ -8,6 +8,7 @@ use App\BlogModule\Post\Post;
 use App\BlogModule\Post\PostRepository;
 use App\Presenters\BasePresenter;
 use Nette\Application\UI\Presenter;
+use Nette\Bridges\ApplicationLatte\Template;
 
 
 final class PostPresenter extends Presenter
@@ -47,8 +48,11 @@ final class PostPresenter extends Presenter
 
 	public function renderDefault(): void
 	{
+		/**
+		 * @var Template $template
+		 */
 		$template = $this->getTemplate();
-		$template->post = $this->post;
+		$template->add('post', $this->post);
 	}
 
 

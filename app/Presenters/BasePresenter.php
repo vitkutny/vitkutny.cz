@@ -5,6 +5,7 @@ namespace App\Presenters;
 use App\Contact\Contact;
 use App\DisqusModule\Controls\DisqusControl;
 use App\DisqusModule\Controls\DisqusControlFactory;
+use Nette\Bridges\ApplicationLatte\Template;
 
 
 trait BasePresenter
@@ -34,8 +35,11 @@ trait BasePresenter
 
 	protected function beforeRender(): void
 	{
+		/**
+		 * @var Template $template
+		 */
 		$template = $this->getTemplate();
-		$template->contact = $this->contact;
+		$template->add('contact', $this->contact);
 	}
 
 

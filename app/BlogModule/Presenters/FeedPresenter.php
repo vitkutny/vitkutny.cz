@@ -5,6 +5,7 @@ namespace App\BlogModule\Presenters;
 use App\BlogModule\Post\PostRepository;
 use App\Presenters\BasePresenter;
 use Nette\Application\UI\Presenter;
+use Nette\Bridges\ApplicationLatte\Template;
 
 
 final class FeedPresenter extends Presenter
@@ -28,7 +29,10 @@ final class FeedPresenter extends Presenter
 
 	public function renderDefault(): void
 	{
+		/**
+		 * @var Template $template
+		 */
 		$template = $this->getTemplate();
-		$template->posts = $this->postRepository->findAll();
+		$template->add('posts', $this->postRepository->findAll());
 	}
 }

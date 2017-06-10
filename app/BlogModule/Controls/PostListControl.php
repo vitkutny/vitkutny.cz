@@ -4,6 +4,7 @@ namespace App\BlogModule\Controls;
 
 use App\BlogModule\Post\PostRepository;
 use Nette\Application\UI\Control;
+use Nette\Bridges\ApplicationLatte\Template;
 
 
 final class PostListControl extends Control
@@ -31,8 +32,11 @@ final class PostListControl extends Control
 
 	public function render(): void
 	{
+		/**
+		 * @var Template $template
+		 */
 		$template = $this->getTemplate();
-		$template->posts = $this->postRepository->findAll();
+		$template->add('posts', $this->postRepository->findAll());
 		$template->setFile(__DIR__ . '/templates/postList.latte');
 		$template->render();
 	}
