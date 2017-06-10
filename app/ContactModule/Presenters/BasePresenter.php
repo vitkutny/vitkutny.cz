@@ -29,7 +29,9 @@ trait BasePresenter
 		 */
 		$template = $this->getTemplate();
 		if ($template instanceof Template) {
-			$template->add('contact', $this->contact);
+			$template->setParameters([
+				'contact' => $this->contact,
+			]);
 		}
 	}
 }

@@ -52,7 +52,9 @@ final class PostPresenter extends Presenter
 		 * @var Template $template
 		 */
 		$template = $this->getTemplate();
-		$template->add('post', $this->post);
+		$template->setParameters([
+			'post' => $this->post,
+		]);
 	}
 
 

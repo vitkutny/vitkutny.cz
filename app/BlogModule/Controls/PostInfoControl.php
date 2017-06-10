@@ -16,7 +16,9 @@ final class PostInfoControl extends Control
 		 * @var Template $template
 		 */
 		$template = $this->getTemplate();
-		$template->add('post', $post);
+		$template->setParameters([
+			'post' => $post,
+		]);
 		$template->setFile(__DIR__ . '/templates/postInfo.latte');
 		$template->render();
 	}

@@ -36,7 +36,9 @@ final class PostListControl extends Control
 		 * @var Template $template
 		 */
 		$template = $this->getTemplate();
-		$template->add('posts', $this->postRepository->findAll());
+		$template->setParameters([
+			'posts' => $this->postRepository->findAll(),
+		]);
 		$template->setFile(__DIR__ . '/templates/postList.latte');
 		$template->render();
 	}

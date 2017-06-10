@@ -33,6 +33,8 @@ final class FeedPresenter extends Presenter
 		 * @var Template $template
 		 */
 		$template = $this->getTemplate();
-		$template->add('posts', $this->postRepository->findAll());
+		$template->setParameters([
+			'posts' => $this->postRepository->findAll(),
+		]);
 	}
 }

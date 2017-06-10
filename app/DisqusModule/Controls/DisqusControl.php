@@ -30,8 +30,10 @@ final class DisqusControl extends Control
 		 * @var Template $template
 		 */
 		$template = $this->getTemplate();
-		$template->add('identifier', $identifier);
-		$template->add('configuration', $this->configuration);
+		$template->setParameters([
+			'identifier' => $identifier,
+			'configuration' => $this->configuration,
+		]);
 		$template->setFile(__DIR__ . '/templates/thread.latte');
 		$template->render();
 	}
@@ -43,7 +45,9 @@ final class DisqusControl extends Control
 		 * @var Template $template
 		 */
 		$template = $this->getTemplate();
-		$template->add('configuration', $this->configuration);
+		$template->setParameters([
+			'configuration' => $this->configuration,
+		]);
 		$template->setFile(__DIR__ . '/templates/script.latte');
 		$template->render();
 	}
