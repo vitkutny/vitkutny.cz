@@ -1,0 +1,15 @@
+language: php
+php:
+    - 7.1
+
+script:
+    - vendor/bin/phpstan analyse -l 5 app
+
+before_script:
+    - travis_retry composer install --no-interaction --prefer-dist
+
+sudo: false
+
+cache:
+    directories:
+        - $HOME/.composer/cache

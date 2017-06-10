@@ -3,6 +3,7 @@
 namespace App\ContactModule\Presenters;
 
 use App\ContactModule\Contact;
+use Nette\Application\UI\Control;
 use Nette\Bridges\ApplicationLatte\Template;
 
 
@@ -24,9 +25,11 @@ trait BasePresenter
 	protected function beforeRender(): void
 	{
 		/**
-		 * @var Template $template
+		 * @var Control $this
 		 */
 		$template = $this->getTemplate();
-		$template->add('contact', $this->contact);
+		if ($template instanceof Template) {
+			$template->add('contact', $this->contact);
+		}
 	}
 }

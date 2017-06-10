@@ -12,6 +12,9 @@
 		"vitkutny/version": "dev-master",
 		"erusev/parsedown": "^1.6.2"
 	},
+	"require-dev": {
+		"phpstan/phpstan": "^0.7"
+	},
 	"minimum-stability": "dev",
 	"autoload": {
 		"psr-4": {
