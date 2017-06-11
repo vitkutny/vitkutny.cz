@@ -9,6 +9,11 @@ use Parsedown;
 final class PostContentParser
 {
 
+	private const TAG_TITLE = 'h1';
+	private const TAG_PEREX = 'p';
+	private const HTML_BEGIN = '<html><body>';
+	private const HTML_END = '</body></html>';
+
 	/**
 	 * @var Parsedown
 	 */
@@ -24,20 +29,14 @@ final class PostContentParser
 
 	public function parseHtml(string $html): PostContent
 	{
-		$title = '';
-		$perex = '';
-		$dom = new DOMDocument;
-		$dom->loadHTML($html);
-		if ($h1 = $dom->getElementsByTagName('h1')->item(0)) {
-			$title = $h1->nodeValue;
-			$h1->parentNode->removeChild($h1);
-		}
-		if ($p = $dom->getElementsByTagName('p')->item(0)) {
-			$perex = $p->nodeValue;
-			$p->parentNode->removeChild($p);
-		}
-		$content = $dom->saveHTML($dom->documentElement);
-		$content = substr($content, strlen('<html><body>'), -strlen('</body></html>'));
+		$document = new DOMDocument;
+		$document->loadHTML($html);
+
+		$title = $this->parseTagFromDocument(self::TAG_TITLE, $document);
+		$perex = $this->parseTagFromDocument(self::TAG_PEREX, $document);
+
+		$content = $document->saveHTML($document->documentElement);
+		$content = substr($content, strlen(self::HTML_BEGIN), -strlen(self::HTML_END));
 
 		return new PostContent(
 			utf8_decode($title),
@@ -50,5 +49,16 @@ final class PostContentParser
 	public function parseMarkdown(string $markdown): PostContent
 	{
 		return $this->parseHtml($this->parsedown->text($markdown));
+	}
+
+
+	private function parseTagFromDocument(string $name, DOMDocument $document): string
+	{
+		if ( ! $tag = $document->getElementsByTagName($name)->item(0)) {
+			return '';
+		}
+		$tag->parentNode->removeChild($tag);
+
+		return $tag->nodeValue;
 	}
 }
