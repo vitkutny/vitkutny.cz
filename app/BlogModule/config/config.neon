@@ -3,7 +3,9 @@ services:
 		class: App\BlogModule\Post\PostRepository
 		arguments: [%wwwDir%/blog]
 
-	- App\BlogModule\Post\PostContentParser
+	-
+		class: App\BlogModule\Post\PostContentParser
+		arguments: [Parsedown()]
 
 	- App\BlogModule\Controls\PostListControlFactory
 	- App\BlogModule\Controls\PostInfoControlFactory

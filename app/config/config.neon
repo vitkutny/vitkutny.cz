@@ -1,13 +1,3 @@
-services:
-	-
-		class: Parsedown
-		setup:
-			- setMarkupEscaped(true)
-
-	nette.latteFactory:
-		setup:
-			- addFilter(parsedown, [@\Parsedown, text])
-
 application:
 	errorPresenter: Error
 	scanDirs: off
