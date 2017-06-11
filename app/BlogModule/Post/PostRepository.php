@@ -4,7 +4,6 @@ namespace App\BlogModule\Post;
 
 use DateTimeImmutable;
 use Nette\Utils\Finder;
-use Parsedown;
 use SplFileInfo;
 
 
@@ -19,17 +18,17 @@ final class PostRepository
 	 */
 	private $directory;
 	/**
-	 * @var Parsedown
+	 * @var PostContentParser
 	 */
-	private $parsedown;
+	private $postContentParser;
 
 
 	public function __construct(
 		string $directory,
-		Parsedown $parsedown
+		PostContentParser $postContentParser
 	) {
 		$this->directory = $directory;
-		$this->parsedown = $parsedown;
+		$this->postContentParser = $postContentParser;
 	}
 
 
@@ -73,27 +72,11 @@ final class PostRepository
 		if ( ! $content = trim(implode(NULL, iterator_to_array($file)))) {
 			return NULL;
 		}
-		$title = '';
-		$perex = '';
-		$dom = new \DOMDocument;
-		$dom->loadHTML($this->parsedown->text($content));
-		if ($h1 = $dom->getElementsByTagName('h1')->item(0)) {
-			$title = $h1->nodeValue;
-			$h1->parentNode->removeChild($h1);
-		}
-		if ($p = $dom->getElementsByTagName('p')->item(0)) {
-			$perex = $p->nodeValue;
-			$p->parentNode->removeChild($p);
-		}
-		$content = $dom->saveHTML($dom->documentElement);
-		$content = substr($content, strlen('<html><body>'), -strlen('</body></html>'));
 
 		return new Post(
 			$basename,
 			$datetime,
-			utf8_decode($title),
-			utf8_decode($perex),
-			utf8_decode($content)
+			$this->postContentParser->parseMarkdown($content)
 		);
 	}
 

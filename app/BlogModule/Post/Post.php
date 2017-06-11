@@ -17,25 +17,15 @@ final class Post
 	 */
 	private $datetime;
 	/**
-	 * @var string
-	 */
-	private $title;
-	/**
-	 * @var string
-	 */
-	private $perex;
-	/**
-	 * @var string
+	 * @var PostContent
 	 */
 	private $content;
 
 
-	public function __construct(string $id, DateTimeImmutable $datetime, string $title, string $perex, string $content)
+	public function __construct(string $id, DateTimeImmutable $datetime, PostContent $content)
 	{
 		$this->id = $id;
 		$this->datetime = $datetime;
-		$this->title = $title;
-		$this->perex = $perex;
 		$this->content = $content;
 	}
 
@@ -54,19 +44,19 @@ final class Post
 
 	public function getTitle(): string
 	{
-		return $this->title;
+		return $this->content->getTitle();
 	}
 
 
 	public function getPerex(): string
 	{
-		return $this->perex;
+		return $this->content->getPerex();
 	}
 
 
 	public function getContent(): string
 	{
-		return $this->content;
+		return $this->content->getContent();
 	}
 
 

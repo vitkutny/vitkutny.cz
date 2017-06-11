@@ -3,6 +3,8 @@ services:
 		class: App\BlogModule\Post\PostRepository
 		arguments: [%wwwDir%/blog]
 
+	- App\BlogModule\Post\PostContentParser
+
 	- App\BlogModule\Controls\PostListControlFactory
 	- App\BlogModule\Controls\PostInfoControlFactory
 
