@@ -2,14 +2,29 @@
 
 namespace App\BlogModule\Post;
 
-use ArrayObject;
+use ArrayIterator;
+use Iterator;
+use IteratorAggregate;
 
 
-final class PostCollection extends ArrayObject
+final class PostCollection implements IteratorAggregate
 {
+
+	/**
+	 * @var array
+	 */
+	private $posts = [];
+
 
 	public function __construct(Post ...$posts)
 	{
-		parent::__construct($posts);
+		$this->posts = $posts;
 	}
+
+
+	public function getIterator(): Iterator
+	{
+		return new ArrayIterator($this->posts);
+	}
+
 }
