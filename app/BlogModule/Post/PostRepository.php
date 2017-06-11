@@ -70,10 +70,13 @@ final class PostRepository
 		} catch (\RuntimeException $exception) {
 			return NULL;
 		}
+		if ( ! $content = trim(implode(NULL, iterator_to_array($file)))) {
+			return NULL;
+		}
 		$title = '';
 		$perex = '';
 		$dom = new \DOMDocument;
-		$dom->loadHTML($this->parsedown->text(implode(NULL, iterator_to_array($file))));
+		$dom->loadHTML($this->parsedown->text($content));
 		if ($h1 = $dom->getElementsByTagName('h1')->item(0)) {
 			$title = $h1->nodeValue;
 			$h1->parentNode->removeChild($h1);
