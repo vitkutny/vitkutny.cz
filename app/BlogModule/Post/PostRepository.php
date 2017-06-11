@@ -59,6 +59,12 @@ final class PostRepository
 
 	private function createPost(string $filename): ?Post
 	{
+		$basename = basename($filename, sprintf(self::FILE_FORMAT, NULL));
+		try {
+			$datetime = new DateTimeImmutable(substr($basename, 0, 10));
+		} catch (\Exception $exception) {
+			return NULL;
+		}
 		try {
 			$file = (new SplFileInfo($filename))->openFile();
 		} catch (\RuntimeException $exception) {
@@ -80,8 +86,8 @@ final class PostRepository
 		$content = substr($content, strlen('<html><body>'), -strlen('</body></html>'));
 
 		return new Post(
-			$basename = basename($filename, sprintf(self::FILE_FORMAT, NULL)),
-			new DateTimeImmutable(substr($basename, 0, 10)),
+			$basename,
+			$datetime,
 			utf8_decode($title),
 			utf8_decode($perex),
 			utf8_decode($content)
