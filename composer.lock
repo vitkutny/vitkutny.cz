@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "c99db81d720eda6cc3f5ac29523338e4",
+    "content-hash": "7603a4dfe0cd6d396a24416248196f08",
     "packages": [
         {
             "name": "erusev/parsedown",
@@ -881,7 +881,7 @@
                 "nette",
                 "profiler"
             ],
-            "time": "2017-06-08 02:13:13"
+            "time": "2017-06-08T02:13:13+00:00"
         },
         {
             "name": "vitkutny/version",
@@ -927,19 +927,19 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpstan/phpstan-shim.git",
-                "reference": "4feedea741f260d0cb23c56fdaf0f2150c3fcdb6"
+                "reference": "48c8ef92966a0caf7ea55eb48792b44a48c2b576"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpstan/phpstan-shim/zipball/4feedea741f260d0cb23c56fdaf0f2150c3fcdb6",
-                "reference": "4feedea741f260d0cb23c56fdaf0f2150c3fcdb6",
+                "url": "https://api.github.com/repos/phpstan/phpstan-shim/zipball/48c8ef92966a0caf7ea55eb48792b44a48c2b576",
+                "reference": "48c8ef92966a0caf7ea55eb48792b44a48c2b576",
                 "shasum": ""
             },
             "require": {
                 "php": "~7.0"
             },
             "provide": {
-                "phpstan/phpstan": "0.7"
+                "phpstan/phpstan": "0.8"
             },
             "bin": [
                 "phpstan.phar"
@@ -947,7 +947,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "0.7-dev"
+                    "dev-master": "0.8-dev"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -955,7 +955,7 @@
                 "MIT"
             ],
             "description": "PHPStan Phar distribution",
-            "time": "2017-05-14 20:57:40"
+            "time": "2017-07-23T20:19:07+00:00"
         }
     ],
     "aliases": [],
