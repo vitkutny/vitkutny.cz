@@ -12,6 +12,7 @@ final class PostRepository
 
 	private const FILE_FORMAT = '%s.md';
 	private const FILE_NAME_FORMAT = '%s/' . self::FILE_FORMAT;
+	private const FILE_DATETIME_PATTERN = '#^\d{4}-\d{2}-\d{2}#';
 
 	/**
 	 * @var string
@@ -58,12 +59,6 @@ final class PostRepository
 
 	private function createPost(string $filename): ?Post
 	{
-		$basename = basename($filename, sprintf(self::FILE_FORMAT, NULL));
-		try {
-			$datetime = new DateTimeImmutable(substr($basename, 0, 10));
-		} catch (\Exception $exception) {
-			return NULL;
-		}
 		try {
 			$file = (new SplFileInfo($filename))->openFile();
 		} catch (\RuntimeException $exception) {
@@ -74,8 +69,8 @@ final class PostRepository
 		}
 
 		return new Post(
-			$basename,
-			$datetime,
+			basename($filename, sprintf(self::FILE_FORMAT, NULL)),
+			new DateTimeImmutable(preg_match(self::FILE_DATETIME_PATTERN, $filename, $matches) ? current($matches) : 'now'),
 			$this->postContentParser->parseMarkdown($content)
 		);
 	}
