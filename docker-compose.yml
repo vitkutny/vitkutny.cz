@@ -26,18 +26,9 @@ services:
           - ./:/var/www
         working_dir: /var/www
 
-    node:
-        image: node:alpine
-        command: yarn install --ignore-engines
-        volumes:
-          - ./:/var/www
-        working_dir: /var/www
-
     webpack:
         image: node:alpine
-        command: yarn run webpack --production
+        command: sh -c "yarn install --ignore-engines && yarn run webpack --production"
         volumes:
           - ./:/var/www
         working_dir: /var/www
-        depends_on:
-          - node
