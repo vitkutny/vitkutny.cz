@@ -6,10 +6,7 @@ use Nette\DI\Container;
 
 return (function (): Container {
 	$configurator = new Configurator;
-	$configurator->setDebugMode([
-		'1@172.28.128.1', //vagrant
-		'1@46.13.135.208', //home
-	]);
+	$configurator->setDebugMode(getenv('DEBUG_MODE'));
 	$configurator->enableTracy(__DIR__ . '/../log');
 	$configurator->setTimeZone('Europe/Prague');
 	$configurator->setTempDirectory(__DIR__ . '/../temp');

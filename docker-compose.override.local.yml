@@ -12,6 +12,7 @@ services:
      - ./docker/php-fpm/xdebug.ini:/usr/local/etc/php/conf.d/xdebug.ini
     environment:
       XDEBUG_CONFIG: remote_host=1.2.3.4 #host IP ($ ipconfig getifaddr en0)
+      DEBUG_MODE: 1@172.17.0.2
     #nginx-proxy
     network_mode: bridge
 
