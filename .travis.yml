@@ -5,4 +5,4 @@ before_script:
     - docker-compose run composer install --ignore-platform-reqs
 
 script:
-    - docker-compose run php-fpm vendor/bin/phpstan.phar analyse -l 5 app
+    - docker-compose run php-fpm vendor/bin/phpstan.phar analyse -l 7 app
