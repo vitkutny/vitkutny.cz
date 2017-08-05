@@ -1,15 +1,8 @@
-language: php
-php:
-    - 7.1
-
-script:
-    - vendor/bin/phpstan.phar analyse -l 5 -c phpstan.neon app
+services:
+    - docker
 
 before_script:
-    - travis_retry composer install --no-interaction --prefer-dist
+    - docker-compose run composer install --ignore-platform-reqs
 
-sudo: false
-
-cache:
-    directories:
-        - $HOME/.composer/cache
+script:
+    - docker-compose run php-fpm vendor/bin/phpstan.phar analyse -l 5 -c phpstan.neon app
