@@ -30,7 +30,7 @@ services:
 
     webpack:
         image: node:alpine
-        command: sh -c "yarn install --ignore-engines && yarn run webpack --production"
+        command: sh -cl "yarn install --ignore-engines && yarn run webpack --production"
         volumes:
           - ./:/var/www
         working_dir: /var/www
