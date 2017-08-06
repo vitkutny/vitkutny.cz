@@ -1,9 +1,0 @@
-version: '3'
-
-services:
-  php-fpm:
-    volumes:
-     - ./docker/php-fpm/xdebug.ini:/usr/local/etc/php/conf.d/xdebug.ini
-
-  composer:
-    command: install --ignore-platform-reqs

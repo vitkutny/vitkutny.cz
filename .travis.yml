@@ -2,7 +2,7 @@ services:
     - docker
 
 before_install:
-    - cp docker-compose.override.travis.yml docker-compose.override.yml
+    - cp docker-compose.override.local.yml docker-compose.override.yml
 
 install:
     - docker-compose run composer
