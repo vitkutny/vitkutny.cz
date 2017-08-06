@@ -58,6 +58,16 @@ final class PostRepositoryTest extends TestCase
 	}
 
 
+	public function testCannotFindAll(): void
+	{
+		$postRepository = $this->createPostRepository(sprintf('%s/undefined', __DIR__));
+		$posts = $postRepository->findAll();
+
+		$this->assertInstanceOf(PostCollection::class, $posts);
+		$this->assertCount(0, $posts);
+	}
+
+
 	public function testCanOrderFindAll(): void
 	{
 		$postRepository = $this->createPostRepository();
@@ -73,10 +83,10 @@ final class PostRepositoryTest extends TestCase
 	}
 
 
-	private function createPostRepository(): PostRepository
+	private function createPostRepository(string $directory = __DIR__): PostRepository
 	{
 		return new PostRepository(
-			sprintf('%s/%s', __DIR__, (new ReflectionClass(self::class))->getShortName()),
+			sprintf('%s/%s', $directory, (new ReflectionClass(self::class))->getShortName()),
 			$htmlPostContentParser = new HtmlPostContentParser,
 			new MarkdownPostContentParser(new \Parsedown(), $htmlPostContentParser)
 		);
