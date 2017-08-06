@@ -9,4 +9,7 @@ before_script:
 
 script:
     - docker-compose run php-fpm vendor/bin/phpstan.phar analyse -l 7 app tests
-    - docker-compose run php-fpm vendor/bin/phpunit tests
+    - docker-compose run php-fpm vendor/bin/phpunit tests --coverage-clover log/coverage.xml --whitelist app
+
+after_script:
+    - docker-compose run php-fpm sh -c "apk add git && curl -LO https://github.com/satooshi/php-coveralls/releases/download/v1.0.1/coveralls.phar && php coveralls.phar -v"
