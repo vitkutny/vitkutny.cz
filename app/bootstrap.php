@@ -9,7 +9,7 @@ return (function (): Container {
 	$configurator->setDebugMode(getenv('DEBUG_MODE'));
 	$configurator->enableTracy(__DIR__ . '/../log');
 	$configurator->setTimeZone('Europe/Prague');
-	$configurator->setTempDirectory(__DIR__ . '/../temp');
+	$configurator->setTempDirectory('/tmp');
 	$configurator->addConfig(__DIR__ . '/config/config.neon');
 	$configurator->addConfig(__DIR__ . '/config/config.local.neon');
 	if ($configurator->isDebugMode()) {
