@@ -9,6 +9,9 @@ use PHPUnit\Framework\TestCase;
 final class BootstrapTest extends TestCase
 {
 
+	private const ENV_DEBUG_MODE = 'DEBUG_MODE';
+
+
 	public static function createContainer(): Container
 	{
 		return require __DIR__ . '/../app/bootstrap.php';
@@ -19,11 +22,27 @@ final class BootstrapTest extends TestCase
 	{
 		$container = $this->createContainer();
 		$parameters = $container->getParameters();
-		if (isset($parameters['debugMode'])) {
-			$this->assertEquals(FALSE, $parameters['debugMode']);
+		$this->assertEquals('/tmp', $parameters['tempDir'] ?? NULL);
+	}
+
+
+	public function testIsDebugMode(): void
+	{
+		putenv(sprintf('%s=%s', self::ENV_DEBUG_MODE, php_uname('n')));
+		try {
+			$container = $this->createContainer();
+		} finally {
+			putenv(self::ENV_DEBUG_MODE);
 		}
-		if (isset($parameters['tempDir'])) {
-			$this->assertEquals('/tmp', $parameters['tempDir']);
-		}
+		$parameters = $container->getParameters();
+		$this->assertEquals(TRUE, $parameters['debugMode'] ?? NULL);
+	}
+
+
+	public function testIsNotDebugMode(): void
+	{
+		$container = $this->createContainer();
+		$parameters = $container->getParameters();
+		$this->assertEquals(FALSE, $parameters['debugMode'] ?? NULL);
 	}
 }
