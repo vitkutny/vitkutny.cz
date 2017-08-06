@@ -14,7 +14,7 @@ final class PostContentTest extends TestCase
 	private const CONTENT_CONTENT = 'content';
 
 
-	public static function createContent(): PostContent
+	public static function createPostContent(): PostContent
 	{
 		return new PostContent(self::CONTENT_TITLE, self::CONTENT_PEREX, self::CONTENT_CONTENT);
 	}
@@ -22,7 +22,7 @@ final class PostContentTest extends TestCase
 
 	public function test(): void
 	{
-		$content = $this->createContent();
+		$content = self::createPostContent();
 
 		$this->assertSame(self::CONTENT_TITLE, $content->getTitle());
 		$this->assertSame(self::CONTENT_PEREX, $content->getPerex());
