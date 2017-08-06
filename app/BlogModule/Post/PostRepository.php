@@ -48,9 +48,14 @@ final class PostRepository
 
 	public function findAll(): PostCollection
 	{
+		try {
+			$files = iterator_to_array(Finder::findFiles('*')->in($this->directory));
+		} catch (\UnexpectedValueException $exception) {
+			$files = []; //failed to open dir
+		}
 		$posts = [];
 		/** @var SplFileInfo $file */
-		foreach (Finder::findFiles('*')->in($this->directory) as $file) {
+		foreach ($files as $file) {
 			$postContentParser = $this->postContentParsers[$file->getExtension()] ?? NULL;
 			if ($postContentParser) {
 				$posts[$file->getBasename()] = $this->createPost($file, $postContentParser);
