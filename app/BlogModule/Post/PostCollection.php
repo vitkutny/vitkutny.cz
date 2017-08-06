@@ -22,6 +22,9 @@ final class PostCollection implements IteratorAggregate
 	}
 
 
+	/**
+	 * @return Post[]
+	 */
 	public function getIterator(): Iterator
 	{
 		return new ArrayIterator($this->posts);

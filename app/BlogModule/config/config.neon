@@ -1,10 +1,15 @@
 services:
 	-
 		class: App\BlogModule\Post\PostRepository
-		arguments: [%wwwDir%/blog]
+		arguments: [
+			%wwwDir%/blog,
+			@App\BlogModule\Post\PostContentParser\MarkdownPostContentParser,
+			@App\BlogModule\Post\PostContentParser\HtmlPostContentParser,
+		]
 
+	-	App\BlogModule\Post\PostContentParser\HtmlPostContentParser
 	-
-		class: App\BlogModule\Post\PostContentParser
+		class: App\BlogModule\Post\PostContentParser\MarkdownPostContentParser
 		arguments: [Parsedown()]
 
 	- App\BlogModule\Controls\PostListControlFactory
