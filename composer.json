@@ -13,12 +13,14 @@
 		"erusev/parsedown": "^1.6.2"
 	},
 	"require-dev": {
-		"phpstan/phpstan-shim": "^0.8"
+		"phpstan/phpstan-shim": "^0.8",
+		"phpunit/phpunit": "^6.3"
 	},
 	"minimum-stability": "dev",
 	"autoload": {
 		"psr-4": {
-			"App\\": "app"
+			"App\\": "app",
+			"Tests\\": "tests"
 		}
 	}
 }

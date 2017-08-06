@@ -8,4 +8,5 @@ before_script:
     - docker-compose build php-fpm
 
 script:
-    - docker-compose run php-fpm vendor/bin/phpstan.phar analyse -l 7 app
+    - docker-compose run php-fpm vendor/bin/phpstan.phar analyse -l 7 app tests
+    - docker-compose run php-fpm vendor/bin/phpunit tests

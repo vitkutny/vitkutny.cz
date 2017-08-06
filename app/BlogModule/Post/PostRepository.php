@@ -10,69 +10,65 @@ use SplFileInfo;
 final class PostRepository
 {
 
-	private const FILE_FORMAT = '%s.md';
-	private const FILE_NAME_FORMAT = '%s/' . self::FILE_FORMAT;
-	private const FILE_DATETIME_PATTERN = '#^\d{4}-\d{2}-\d{2}#';
+	private const DATETIME_PATTERN = '#^\d{4}-\d{2}-\d{2}#';
 
 	/**
 	 * @var string
 	 */
 	private $directory;
 	/**
-	 * @var PostContentParser
+	 * @var array|PostContentParser[]
 	 */
-	private $postContentParser;
+	private $postContentParsers = [];
 
 
 	public function __construct(
 		string $directory,
-		PostContentParser $postContentParser
+		PostContentParser ...$postContentParsers
 	) {
 		$this->directory = $directory;
-		$this->postContentParser = $postContentParser;
+		foreach ($postContentParsers as $postContentParser) {
+			$this->postContentParsers[$postContentParser->getExtension()] = $postContentParser;
+		}
 	}
 
 
 	public function getById(string $id): ?Post
 	{
-		return $this->createPost(sprintf(self::FILE_NAME_FORMAT, $this->directory, $id));
+		foreach ($this->postContentParsers as $extension => $postContentParser) {
+			$filename = sprintf('%s/%s.%s', $this->directory, $id, $extension);
+			if (file_exists($filename)) {
+				return $this->createPost(new SplFileInfo($filename), $postContentParser);
+			}
+		}
+
+		return NULL;
 	}
 
 
 	public function findAll(): PostCollection
 	{
 		$posts = [];
-		try {
-			$files = iterator_to_array(Finder::findFiles(sprintf(self::FILE_FORMAT, '*'))->in($this->directory));
-		} catch (\UnexpectedValueException $exception) {
-			$files = [];
-		}
-		foreach (array_reverse($files) as $file) {
-			if ($post = $this->createPost((string) $file)) {
-				$posts[] = $post;
+		/** @var SplFileInfo $file */
+		foreach (Finder::findFiles('*')->in($this->directory) as $file) {
+			$postContentParser = $this->postContentParsers[$file->getExtension()] ?? NULL;
+			if ($postContentParser) {
+				$posts[$file->getBasename()] = $this->createPost($file, $postContentParser);
 			}
 		}
+		krsort($posts);
 
-		return new PostCollection(...$posts);
+		return new PostCollection(...array_values($posts));
 	}
 
 
-	private function createPost(string $filename): ?Post
+	private function createPost(SplFileInfo $file, PostContentParser $postContentParser): Post
 	{
-		try {
-			$file = (new SplFileInfo($filename))->openFile();
-		} catch (\RuntimeException $exception) {
-			return NULL;
-		}
-		if ( ! $content = trim(implode(NULL, iterator_to_array($file)))) {
-			return NULL;
-		}
+		$id = $file->getBasename(sprintf('.%s', $file->getExtension()));
+		$datetime = new DateTimeImmutable(preg_match(self::DATETIME_PATTERN, $id, $matches) ? current($matches) : 'now');
+		$content = trim(implode(NULL, iterator_to_array($file->openFile())));
 
-		return new Post(
-			basename($filename, sprintf(self::FILE_FORMAT, NULL)),
-			new DateTimeImmutable(preg_match(self::FILE_DATETIME_PATTERN, $filename, $matches) ? current($matches) : 'now'),
-			$this->postContentParser->parseMarkdown($content)
-		);
+		return new Post($id, $datetime, $postContentParser->parse($content));
 	}
 
 }
