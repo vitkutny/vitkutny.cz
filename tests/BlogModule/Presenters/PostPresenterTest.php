@@ -22,9 +22,9 @@ final class PostPresenterTest extends TestCase
 	public function testCanSeePost(): void
 	{
 		$post = PostTest::createPost();
-		$request = new Request(self::NAME, IRequest::GET, ['post' => $post]);
 		/** @var TextResponse $response */
-		$response = $this->createPresenter()->run($request);
+		$response = $this->createPresenter()->run(new Request(self::NAME, IRequest::GET, ['post' => $post]));
+
 		$this->assertInstanceOf(TextResponse::class, $response);
 		$source = (string) $response->getSource();
 		$this->assertContains($post->getTitle(), $source);
@@ -36,9 +36,18 @@ final class PostPresenterTest extends TestCase
 
 	public function testCannotSeePost(): void
 	{
-		$request = new Request(self::NAME, IRequest::GET);
 		$this->expectException(BadRequestException::class);
-		$this->createPresenter()->run($request);
+		$this->createPresenter()->run(new Request(self::NAME, IRequest::GET));
+	}
+
+
+	public function testCanSeeDisqusThread(): void
+	{
+		/** @var TextResponse $response */
+		$response = $this->createPresenter()->run(new Request(self::NAME, IRequest::GET, ['post' => PostTest::createPost()]));
+		$this->assertInstanceOf(TextResponse::class, $response);
+		$source = (string) $response->getSource();
+		$this->assertContains('<div id="disqus_thread"></div>', $source);
 	}
 
 

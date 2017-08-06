@@ -9,10 +9,13 @@ use PHPUnit\Framework\TestCase;
 final class ConfigurationTest extends TestCase
 {
 
+	private const SITE = 'site';
+
+
 	public function test(): void
 	{
-		$configuration = new Configuration('site');
-		$this->assertEquals('site', $configuration->getSite());
+		$configuration = new Configuration(self::SITE);
+		$this->assertEquals(self::SITE, $configuration->getSite());
 	}
 
 }

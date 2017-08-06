@@ -21,9 +21,12 @@ final class ErrorPresenterTest extends TestCase
 
 	public function testCanSeePageNotFound(): void
 	{
-		$request = new Request(self::NAME, IRequest::GET, ['exception' => new Exception('', IResponse::S404_NOT_FOUND)]);
 		/** @var TextResponse $response */
-		$response = $this->createPresenter()->run($request);
+		$response = $this->createPresenter()->run(new Request(self::NAME,
+			IRequest::GET,
+			['exception' => new Exception('', IResponse::S404_NOT_FOUND)]
+		))
+		;
 
 		$this->assertInstanceOf(TextResponse::class, $response);
 		$source = (string) $response->getSource();
@@ -34,9 +37,13 @@ final class ErrorPresenterTest extends TestCase
 
 	public function testCanSeeServerError(): void
 	{
-		$request = new Request(self::NAME, IRequest::GET, ['exception' => new Exception('', IResponse::S500_INTERNAL_SERVER_ERROR)]);
 		/** @var TextResponse $response */
-		$response = $this->createPresenter()->run($request);
+		$response = $this->createPresenter()->run(new Request(
+			self::NAME,
+			IRequest::GET,
+			['exception' => new Exception('', IResponse::S500_INTERNAL_SERVER_ERROR)]
+		))
+		;
 
 		$this->assertInstanceOf(TextResponse::class, $response);
 		$source = (string) $response->getSource();
@@ -47,9 +54,13 @@ final class ErrorPresenterTest extends TestCase
 
 	public function testCanSeeDefaultError(): void
 	{
-		$request = new Request(self::NAME, IRequest::GET, ['exception' => new Exception]);
 		/** @var TextResponse $response */
-		$response = $this->createPresenter()->run($request);
+		$response = $this->createPresenter()->run(new Request(
+			self::NAME,
+			IRequest::GET,
+			['exception' => new Exception]
+		))
+		;
 
 		$this->assertInstanceOf(TextResponse::class, $response);
 		$source = (string) $response->getSource();
