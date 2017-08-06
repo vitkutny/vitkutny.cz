@@ -14,9 +14,19 @@ use ReflectionClass;
 final class PostRepositoryTest extends TestCase
 {
 
+	public static function createPostRepository(string $directory = __DIR__): PostRepository
+	{
+		return new PostRepository(
+			sprintf('%s/%s', $directory, (new ReflectionClass(self::class))->getShortName()),
+			$htmlPostContentParser = new HtmlPostContentParser,
+			new MarkdownPostContentParser(new \Parsedown(), $htmlPostContentParser)
+		);
+	}
+
+
 	public function testCanGetById(): void
 	{
-		$postRepository = $this->createPostRepository();
+		$postRepository = self::createPostRepository();
 
 		$newYearPost = $postRepository->getById('2017-01-01-new-year');
 		if ($newYearPost) {
@@ -52,14 +62,14 @@ final class PostRepositoryTest extends TestCase
 
 	public function testCannotGetById(): void
 	{
-		$postRepository = $this->createPostRepository();
+		$postRepository = self::createPostRepository();
 		$this->assertNull($postRepository->getById('0000-00-00-zero'));
 	}
 
 
 	public function testCanFindAll(): void
 	{
-		$postRepository = $this->createPostRepository();
+		$postRepository = self::createPostRepository();
 		$posts = $postRepository->findAll();
 
 		$this->assertInstanceOf(PostCollection::class, $posts);
@@ -69,7 +79,7 @@ final class PostRepositoryTest extends TestCase
 
 	public function testCannotFindAll(): void
 	{
-		$postRepository = $this->createPostRepository(sprintf('%s/undefined', __DIR__));
+		$postRepository = self::createPostRepository(sprintf('%s/undefined', __DIR__));
 		$posts = $postRepository->findAll();
 
 		$this->assertInstanceOf(PostCollection::class, $posts);
@@ -79,7 +89,7 @@ final class PostRepositoryTest extends TestCase
 
 	public function testCanOrderFindAll(): void
 	{
-		$postRepository = $this->createPostRepository();
+		$postRepository = self::createPostRepository();
 
 		/** @var \DateTimeInterface $datetime */
 		$datetime = NULL;
@@ -89,15 +99,5 @@ final class PostRepositoryTest extends TestCase
 			}
 			$datetime = $post->getDatetime();
 		}
-	}
-
-
-	private function createPostRepository(string $directory = __DIR__): PostRepository
-	{
-		return new PostRepository(
-			sprintf('%s/%s', $directory, (new ReflectionClass(self::class))->getShortName()),
-			$htmlPostContentParser = new HtmlPostContentParser,
-			new MarkdownPostContentParser(new \Parsedown(), $htmlPostContentParser)
-		);
 	}
 }
