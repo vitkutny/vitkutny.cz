@@ -15,18 +15,18 @@ final class PostTest extends TestCase
 
 	public static function createPost(): Post
 	{
-		return new Post(self::ID, new \DateTimeImmutable(self::DATETIME), PostContentTest::createContent());
+		return new Post(self::ID, new \DateTimeImmutable(self::DATETIME), PostContentTest::createPostContent());
 	}
 
 
 	public function test(): void
 	{
-		$post = $this->createPost();
+		$post = self::createPost();
 		$this->assertSame(self::ID, $post->getId());
 		$this->assertSame(self::ID, $post->__toString());
 		$this->assertSame(self::DATETIME, $post->getDatetime()->format('Y-m-d'));
 
-		$postContent = PostContentTest::createContent();
+		$postContent = PostContentTest::createPostContent();
 		$this->assertSame($postContent->getTitle(), $post->getTitle());
 		$this->assertSame($postContent->getPerex(), $post->getPerex());
 		$this->assertSame($postContent->getContent(), $post->getContent());

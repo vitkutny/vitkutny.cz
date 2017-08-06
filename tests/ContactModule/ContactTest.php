@@ -14,19 +14,25 @@ final class ContactTest extends TestCase
 	private const ADDRESS = 'address';
 
 
+	public static function createContact(): Contact
+	{
+		return new Contact(self::NAME, self::POSITION, self::ADDRESS);
+	}
+
+
 	public function test(): void
 	{
-		$contact = new Contact(self::NAME, self::POSITION, self::ADDRESS);
+		$contact = self::createContact();
 		$this->assertEquals(self::NAME, $contact->getName());
 		$this->assertEquals(self::POSITION, $contact->getPosition());
 		$this->assertEquals(self::ADDRESS, $contact->getAddress());
 		$this->assertNull($contact->getAvatar());
 		$this->assertEmpty($contact->getLinks());
 
-		$contact->setAvatar($avatar = ContactAvatarTest::createAvatar());
+		$contact->setAvatar($avatar = ContactAvatarTest::createContactAvatar());
 		$this->assertSame($avatar, $contact->getAvatar());
 
-		$contact->addLink($link = ContactLinkTest::createLink());
+		$contact->addLink($link = ContactLinkTest::createContactLink());
 		$this->assertSame([$link], $contact->getLinks());
 	}
 }

@@ -14,7 +14,7 @@ final class ContactLinkTest extends TestCase
 	private const ICON = 'icon';
 
 
-	public static function createLink(): ContactLink
+	public static function createContactLink(): ContactLink
 	{
 		return new ContactLink(self::NAME, self::LINK, self::ICON);
 	}
@@ -22,7 +22,7 @@ final class ContactLinkTest extends TestCase
 
 	public function test(): void
 	{
-		$link = $this->createLink();
+		$link = self::createContactLink();
 		$this->assertSame(self::NAME, $link->getName());
 		$this->assertSame(self::LINK, $link->getLink());
 		$this->assertSame(self::ICON, $link->getIcon());

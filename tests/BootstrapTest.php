@@ -20,7 +20,7 @@ final class BootstrapTest extends TestCase
 
 	public function test(): void
 	{
-		$container = $this->createContainer();
+		$container = self::createContainer();
 		$parameters = $container->getParameters();
 		$this->assertEquals('/tmp', $parameters['tempDir'] ?? NULL);
 	}
@@ -30,7 +30,7 @@ final class BootstrapTest extends TestCase
 	{
 		putenv(sprintf('%s=%s', self::ENV_DEBUG_MODE, php_uname('n')));
 		try {
-			$container = $this->createContainer();
+			$container = self::createContainer();
 		} finally {
 			putenv(self::ENV_DEBUG_MODE);
 		}
@@ -41,7 +41,7 @@ final class BootstrapTest extends TestCase
 
 	public function testIsNotDebugMode(): void
 	{
-		$container = $this->createContainer();
+		$container = self::createContainer();
 		$parameters = $container->getParameters();
 		$this->assertEquals(FALSE, $parameters['debugMode'] ?? NULL);
 	}

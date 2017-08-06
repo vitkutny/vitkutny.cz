@@ -12,7 +12,7 @@ final class ContactAvatarTest extends TestCase
 	private const LINK = 'link';
 
 
-	public static function createAvatar(): ContactAvatar
+	public static function createContactAvatar(): ContactAvatar
 	{
 		return new ContactAvatar(self::LINK);
 	}
@@ -20,7 +20,7 @@ final class ContactAvatarTest extends TestCase
 
 	public function test(): void
 	{
-		$avatar = $this->createAvatar();
+		$avatar = self::createContactAvatar();
 		$this->assertSame(self::LINK, $avatar->getLink());
 	}
 
