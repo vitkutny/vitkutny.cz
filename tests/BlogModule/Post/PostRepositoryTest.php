@@ -22,6 +22,9 @@ final class PostRepositoryTest extends TestCase
 		if ($newYearPost) {
 			$this->assertEquals('2017-01-01-new-year', $newYearPost->getId());
 			$this->assertEquals('2017-01-01', $newYearPost->getDatetime()->format('Y-m-d'));
+			$this->assertEquals('Happy new year!', $newYearPost->getTitle());
+			$this->assertEquals('Perex', $newYearPost->getPerex());
+			$this->assertEquals('<p>Content</p>', $newYearPost->getContent());
 		}
 		$this->assertInstanceOf(Post::class, $newYearPost);
 
@@ -29,6 +32,9 @@ final class PostRepositoryTest extends TestCase
 		if ($birthdayPost) {
 			$this->assertEquals('2017-05-24-birthday', $birthdayPost->getId());
 			$this->assertEquals('2017-05-24', $birthdayPost->getDatetime()->format('Y-m-d'));
+			$this->assertEquals('Happy birthday!', $birthdayPost->getTitle());
+			$this->assertEquals('Perex', $birthdayPost->getPerex());
+			$this->assertEquals('<p>Content</p>', $birthdayPost->getContent());
 		}
 		$this->assertInstanceOf(Post::class, $birthdayPost);
 
@@ -36,6 +42,9 @@ final class PostRepositoryTest extends TestCase
 		if ($christmasPost) {
 			$this->assertEquals('2017-12-24-christmas', $christmasPost->getId());
 			$this->assertEquals('2017-12-24', $christmasPost->getDatetime()->format('Y-m-d'));
+			$this->assertEquals('Merry christmas!', $christmasPost->getTitle());
+			$this->assertEquals('Perex', $christmasPost->getPerex());
+			$this->assertEquals('<p>Content</p>', $christmasPost->getContent());
 		}
 		$this->assertInstanceOf(Post::class, $christmasPost);
 	}

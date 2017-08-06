@@ -29,7 +29,7 @@ final class HtmlPostContentParser implements PostContentParser
 
 		if ($content) {
 			$content = $document->saveHTML($document->documentElement);
-			$content = substr($content, strlen(self::HTML_BEGIN), -strlen(self::HTML_END));
+			$content = trim(substr($content, strlen(self::HTML_BEGIN), -strlen(self::HTML_END)));
 		}
 
 		return new PostContent(
