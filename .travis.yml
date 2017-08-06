@@ -1,8 +1,11 @@
 services:
     - docker
 
+before_install:
+    - cp docker-compose.override.travis.yml docker-compose.override.yml
+
 install:
-    - docker-compose run composer install --ignore-platform-reqs
+    - docker-compose run composer
 
 before_script:
     - docker-compose build php-fpm
