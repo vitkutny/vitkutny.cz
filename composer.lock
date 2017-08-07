@@ -4,20 +4,20 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "5c1eb151e0c68e5828c64cf2e35f6edb",
+    "content-hash": "79ae2300e37963089489f95919739fa5",
     "packages": [
         {
             "name": "erusev/parsedown",
-            "version": "1.6.2",
+            "version": "1.6.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/erusev/parsedown.git",
-                "reference": "1bf24f7334fe16c88bf9d467863309ceaf285b01"
+                "reference": "728952b90a333b5c6f77f06ea9422b94b585878d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/erusev/parsedown/zipball/1bf24f7334fe16c88bf9d467863309ceaf285b01",
-                "reference": "1bf24f7334fe16c88bf9d467863309ceaf285b01",
+                "url": "https://api.github.com/repos/erusev/parsedown/zipball/728952b90a333b5c6f77f06ea9422b94b585878d",
+                "reference": "728952b90a333b5c6f77f06ea9422b94b585878d",
                 "shasum": ""
             },
             "require": {
@@ -46,20 +46,20 @@
                 "markdown",
                 "parser"
             ],
-            "time": "2017-03-29T16:04:15+00:00"
+            "time": "2017-05-14T14:47:48+00:00"
         },
         {
             "name": "latte/latte",
-            "version": "dev-master",
+            "version": "v3.0.0-alpha1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nette/latte.git",
-                "reference": "d30c0745110bfa60a158a788e3609d4325ef5243"
+                "reference": "ee18dfc1e2ff07ba304b22370c2d25c6b708d1c1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nette/latte/zipball/d30c0745110bfa60a158a788e3609d4325ef5243",
-                "reference": "d30c0745110bfa60a158a788e3609d4325ef5243",
+                "url": "https://api.github.com/repos/nette/latte/zipball/ee18dfc1e2ff07ba304b22370c2d25c6b708d1c1",
+                "reference": "ee18dfc1e2ff07ba304b22370c2d25c6b708d1c1",
                 "shasum": ""
             },
             "require": {
@@ -76,7 +76,8 @@
             },
             "suggest": {
                 "ext-fileinfo": "to use filter |datastream",
-                "ext-mbstring": "to use filters like lower, upper, capitalize, ..."
+                "ext-mbstring": "to use filters like lower, upper, capitalize, ...",
+                "ext-xml": "to use filters like length, substring, ..."
             },
             "type": "library",
             "extra": {
@@ -105,32 +106,26 @@
                     "homepage": "https://nette.org/contributors"
                 }
             ],
-            "description": "☕ Latte: the intuitive and fast template engine for those who want the most secure PHP sites. Introduces context-sensitive escaping.",
+            "description": "Latte: the amazing template engine for PHP",
             "homepage": "https://latte.nette.org",
             "keywords": [
-                "context-sensitive",
-                "engine",
-                "escaping",
-                "html",
-                "nette",
-                "security",
-                "template",
+                "templating",
                 "twig"
             ],
-            "time": "2017-05-23 11:19:51"
+            "time": "2017-02-02T01:58:07+00:00"
         },
         {
             "name": "nette/application",
-            "version": "dev-master",
+            "version": "v3.0.0-alpha1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nette/application.git",
-                "reference": "a8d5d0771c8879dfe94a15ae8e203415213af61b"
+                "reference": "b7df270f993f3006d4f1f1d0c3a48df37b6eefec"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nette/application/zipball/a8d5d0771c8879dfe94a15ae8e203415213af61b",
-                "reference": "a8d5d0771c8879dfe94a15ae8e203415213af61b",
+                "url": "https://api.github.com/repos/nette/application/zipball/b7df270f993f3006d4f1f1d0c3a48df37b6eefec",
+                "reference": "b7df270f993f3006d4f1f1d0c3a48df37b6eefec",
                 "shasum": ""
             },
             "require": {
@@ -189,38 +184,26 @@
                     "homepage": "https://nette.org/contributors"
                 }
             ],
-            "description": "🏆 A full-stack component-based MVC kernel for PHP that helps you write powerful and modern web applications. Write less, have cleaner code and your work will bring you joy.",
+            "description": "Nette Application MVC Component",
             "homepage": "https://nette.org",
-            "keywords": [
-                "Forms",
-                "component-based",
-                "control",
-                "framework",
-                "mvc",
-                "mvp",
-                "nette",
-                "presenter",
-                "routing",
-                "seo"
-            ],
-            "time": "2017-05-23 11:59:53"
+            "time": "2017-02-02T02:32:03+00:00"
         },
         {
             "name": "nette/bootstrap",
-            "version": "dev-master",
+            "version": "v3.0.0-beta",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nette/bootstrap.git",
-                "reference": "fc7d088304f1ceb744d1b909a64e5b37909367c7"
+                "reference": "336a48268c7a58ccb8240dc333e4a54b05a958d7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nette/bootstrap/zipball/fc7d088304f1ceb744d1b909a64e5b37909367c7",
-                "reference": "fc7d088304f1ceb744d1b909a64e5b37909367c7",
+                "url": "https://api.github.com/repos/nette/bootstrap/zipball/336a48268c7a58ccb8240dc333e4a54b05a958d7",
+                "reference": "336a48268c7a58ccb8240dc333e4a54b05a958d7",
                 "shasum": ""
             },
             "require": {
-                "nette/di": "^2.4.7 || ^3.0",
+                "nette/di": "^2.4 || ^3.0",
                 "nette/utils": "^2.4 || ^3.0",
                 "php": ">=7.1"
             },
@@ -272,27 +255,22 @@
                     "homepage": "https://nette.org/contributors"
                 }
             ],
-            "description": "🅱 The simple way to configure and bootstrap your Nette application.",
+            "description": "Nette Bootstrap",
             "homepage": "https://nette.org",
-            "keywords": [
-                "bootstrapping",
-                "configurator",
-                "nette"
-            ],
-            "time": "2017-03-14 17:57:32"
+            "time": "2017-02-02T03:24:19+00:00"
         },
         {
             "name": "nette/caching",
-            "version": "dev-master",
+            "version": "v3.0.0-beta",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nette/caching.git",
-                "reference": "5da1afb8186169876fadcd00a0cfe956b71f67ee"
+                "reference": "077ab4115adad300bac894437c86fd901bbe67f9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nette/caching/zipball/5da1afb8186169876fadcd00a0cfe956b71f67ee",
-                "reference": "5da1afb8186169876fadcd00a0cfe956b71f67ee",
+                "url": "https://api.github.com/repos/nette/caching/zipball/077ab4115adad300bac894437c86fd901bbe67f9",
+                "reference": "077ab4115adad300bac894437c86fd901bbe67f9",
                 "shasum": ""
             },
             "require": {
@@ -339,29 +317,22 @@
                     "homepage": "https://nette.org/contributors"
                 }
             ],
-            "description": "⏱ Caching library with easy-to-use API and many cache backends.",
+            "description": "Nette Caching Component",
             "homepage": "https://nette.org",
-            "keywords": [
-                "cache",
-                "journal",
-                "memcached",
-                "nette",
-                "sqlite"
-            ],
-            "time": "2017-03-14 17:57:08"
+            "time": "2017-02-02T02:16:13+00:00"
         },
         {
             "name": "nette/component-model",
-            "version": "dev-master",
+            "version": "v3.0.0-beta",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nette/component-model.git",
-                "reference": "5cd82e36cb0bd3f83b8b86d7e9969ec8dc5818df"
+                "reference": "df992819e3e7285c9b23583280161bfcb660bf4b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nette/component-model/zipball/5cd82e36cb0bd3f83b8b86d7e9969ec8dc5818df",
-                "reference": "5cd82e36cb0bd3f83b8b86d7e9969ec8dc5818df",
+                "url": "https://api.github.com/repos/nette/component-model/zipball/df992819e3e7285c9b23583280161bfcb660bf4b",
+                "reference": "df992819e3e7285c9b23583280161bfcb660bf4b",
                 "shasum": ""
             },
             "require": {
@@ -403,32 +374,28 @@
                     "homepage": "https://nette.org/contributors"
                 }
             ],
-            "description": "⚛ Component model foundation for Nette",
+            "description": "Nette Component Model",
             "homepage": "https://nette.org",
-            "keywords": [
-                "components",
-                "nette"
-            ],
-            "time": "2017-03-14 17:56:37"
+            "time": "2017-01-26T00:23:49+00:00"
         },
         {
             "name": "nette/di",
-            "version": "dev-master",
+            "version": "v3.0.0-alpha1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nette/di.git",
-                "reference": "29b3a56a2ed205f7f40828a718e83e4d527b6637"
+                "reference": "5a589e2a6c72ce537684eb8ae98f584c07d73c0a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nette/di/zipball/29b3a56a2ed205f7f40828a718e83e4d527b6637",
-                "reference": "29b3a56a2ed205f7f40828a718e83e4d527b6637",
+                "url": "https://api.github.com/repos/nette/di/zipball/5a589e2a6c72ce537684eb8ae98f584c07d73c0a",
+                "reference": "5a589e2a6c72ce537684eb8ae98f584c07d73c0a",
                 "shasum": ""
             },
             "require": {
                 "ext-tokenizer": "*",
                 "nette/neon": "^2.3.3 || ~3.0.0",
-                "nette/php-generator": "^2.6.1 || ~3.0.0",
+                "nette/php-generator": "^2.5 || ~3.0.0",
                 "nette/utils": "^2.4.3 || ~3.0.0",
                 "php": ">=7.0"
             },
@@ -467,31 +434,22 @@
                     "homepage": "https://nette.org/contributors"
                 }
             ],
-            "description": "💎 Flexible, compiled and full-featured Dependency Injection Container with perfectly usable autowiring and support for all new PHP 7.1 features.",
+            "description": "Nette Dependency Injection Component",
             "homepage": "https://nette.org",
-            "keywords": [
-                "compiled",
-                "di",
-                "dic",
-                "factory",
-                "ioc",
-                "nette",
-                "static"
-            ],
-            "time": "2017-04-25 16:15:46"
+            "time": "2017-02-02T03:11:32+00:00"
         },
         {
             "name": "nette/finder",
-            "version": "dev-master",
+            "version": "v3.0.0-RC",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nette/finder.git",
-                "reference": "13f42b4d40c87557455232313b03413ad8e5e9d5"
+                "reference": "21d4aa7834e8cb58f3a1666607acdf00d7486edb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nette/finder/zipball/13f42b4d40c87557455232313b03413ad8e5e9d5",
-                "reference": "13f42b4d40c87557455232313b03413ad8e5e9d5",
+                "url": "https://api.github.com/repos/nette/finder/zipball/21d4aa7834e8cb58f3a1666607acdf00d7486edb",
+                "reference": "21d4aa7834e8cb58f3a1666607acdf00d7486edb",
                 "shasum": ""
             },
             "require": {
@@ -532,28 +490,22 @@
                     "homepage": "https://nette.org/contributors"
                 }
             ],
-            "description": "🔍 Finder: find files and directories with an intuitive API.",
+            "description": "Nette Finder: Files Searching",
             "homepage": "https://nette.org",
-            "keywords": [
-                "filesystem",
-                "glob",
-                "iterator",
-                "nette"
-            ],
-            "time": "2017-03-05 23:29:27"
+            "time": "2017-02-02T02:09:35+00:00"
         },
         {
             "name": "nette/http",
-            "version": "dev-master",
+            "version": "v3.0.0-alpha1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nette/http.git",
-                "reference": "9c580190b46e272bc64dc3fdbba1f9718d159717"
+                "reference": "86c9227860ec99e67beeb1094810826859e50e53"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nette/http/zipball/9c580190b46e272bc64dc3fdbba1f9718d159717",
-                "reference": "9c580190b46e272bc64dc3fdbba1f9718d159717",
+                "url": "https://api.github.com/repos/nette/http/zipball/86c9227860ec99e67beeb1094810826859e50e53",
+                "reference": "86c9227860ec99e67beeb1094810826859e50e53",
                 "shasum": ""
             },
             "require": {
@@ -569,8 +521,7 @@
                 "tracy/tracy": "^2.4"
             },
             "suggest": {
-                "ext-fileinfo": "to detect type of uploaded files",
-                "nette/security": "allows use Nette\\Http\\UserStorage"
+                "ext-fileinfo": "to detect type of uploaded files"
             },
             "type": "library",
             "extra": {
@@ -599,33 +550,22 @@
                     "homepage": "https://nette.org/contributors"
                 }
             ],
-            "description": "🌐 Abstraction for HTTP request, response and session. Provides careful data sanitization and utility for URL and cookies manipulation.",
+            "description": "Nette HTTP Component",
             "homepage": "https://nette.org",
-            "keywords": [
-                "cookies",
-                "http",
-                "nette",
-                "proxy",
-                "request",
-                "response",
-                "security",
-                "session",
-                "url"
-            ],
-            "time": "2017-03-29 13:06:02"
+            "time": "2017-02-02T00:52:06+00:00"
         },
         {
             "name": "nette/neon",
-            "version": "dev-master",
+            "version": "v3.0.0-beta1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nette/neon.git",
-                "reference": "cfea4c34b141f658423d5699a027ea8bfb8e0757"
+                "reference": "2c8b4195ca6a1be3d903f1c344b5afb412862155"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nette/neon/zipball/cfea4c34b141f658423d5699a027ea8bfb8e0757",
-                "reference": "cfea4c34b141f658423d5699a027ea8bfb8e0757",
+                "url": "https://api.github.com/repos/nette/neon/zipball/2c8b4195ca6a1be3d903f1c344b5afb412862155",
+                "reference": "2c8b4195ca6a1be3d903f1c344b5afb412862155",
                 "shasum": ""
             },
             "require": {
@@ -664,29 +604,22 @@
                     "homepage": "https://nette.org/contributors"
                 }
             ],
-            "description": "🍸 Encodes and decodes NEON file format.",
+            "description": "Nette NEON: parser & generator for Nette Object Notation",
             "homepage": "http://ne-on.org",
-            "keywords": [
-                "export",
-                "import",
-                "neon",
-                "nette",
-                "yaml"
-            ],
-            "time": "2017-02-10 13:30:03"
+            "time": "2017-02-02T01:20:49+00:00"
         },
         {
             "name": "nette/php-generator",
-            "version": "dev-master",
+            "version": "v3.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nette/php-generator.git",
-                "reference": "ced817cf1024b1d557b642f79fbd38cc8d7fc540"
+                "reference": "eb2dbc9c3409e9db40568109ca4994d51373b60c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nette/php-generator/zipball/ced817cf1024b1d557b642f79fbd38cc8d7fc540",
-                "reference": "ced817cf1024b1d557b642f79fbd38cc8d7fc540",
+                "url": "https://api.github.com/repos/nette/php-generator/zipball/eb2dbc9c3409e9db40568109ca4994d51373b60c",
+                "reference": "eb2dbc9c3409e9db40568109ca4994d51373b60c",
                 "shasum": ""
             },
             "require": {
@@ -727,7 +660,7 @@
                     "homepage": "https://nette.org/contributors"
                 }
             ],
-            "description": "🐘 Generates neat PHP code for you. Supports new PHP 7.1 features.",
+            "description": "🐘 Nette PHP Generator: generates neat PHP code for you. Supports new PHP 7.1 features.",
             "homepage": "https://nette.org",
             "keywords": [
                 "code",
@@ -735,20 +668,20 @@
                 "php",
                 "scaffolding"
             ],
-            "time": "2017-06-08 02:10:28"
+            "time": "2017-07-11T19:07:13+00:00"
         },
         {
             "name": "nette/utils",
-            "version": "dev-master",
+            "version": "v3.0.0-beta2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nette/utils.git",
-                "reference": "a3964580411c314e41ac4ab799fa5ce933e12983"
+                "reference": "eed59a3a5baffd431a60d4d5cd0776e246689f43"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nette/utils/zipball/a3964580411c314e41ac4ab799fa5ce933e12983",
-                "reference": "a3964580411c314e41ac4ab799fa5ce933e12983",
+                "url": "https://api.github.com/repos/nette/utils/zipball/eed59a3a5baffd431a60d4d5cd0776e246689f43",
+                "reference": "eed59a3a5baffd431a60d4d5cd0776e246689f43",
                 "shasum": ""
             },
             "require": {
@@ -796,7 +729,7 @@
                     "homepage": "https://nette.org/contributors"
                 }
             ],
-            "description": "🛠 Lightweight utilities for string & array manipulation, image handling, safe JSON encoding/decoding, validation, slug or strong password generating etc.",
+            "description": "🛠 Nette Utils: lightweight utilities for string & array manipulation, image handling, safe JSON encoding/decoding, validation, slug or strong password generating etc.",
             "homepage": "https://nette.org",
             "keywords": [
                 "array",
@@ -814,20 +747,20 @@
                 "utility",
                 "validation"
             ],
-            "time": "2017-05-09 09:59:33"
+            "time": "2017-07-21T18:53:58+00:00"
         },
         {
             "name": "tracy/tracy",
-            "version": "dev-master",
+            "version": "v2.4.8",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nette/tracy.git",
-                "reference": "ae420152352bf66b56d23a4664203429a3aa1b09"
+                "reference": "4538cbe7f11d03d78afd34a168ca1c966792a3d6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nette/tracy/zipball/ae420152352bf66b56d23a4664203429a3aa1b09",
-                "reference": "ae420152352bf66b56d23a4664203429a3aa1b09",
+                "url": "https://api.github.com/repos/nette/tracy/zipball/4538cbe7f11d03d78afd34a168ca1c966792a3d6",
+                "reference": "4538cbe7f11d03d78afd34a168ca1c966792a3d6",
                 "shasum": ""
             },
             "require": {
@@ -881,7 +814,7 @@
                 "nette",
                 "profiler"
             ],
-            "time": "2017-06-08T02:13:13+00:00"
+            "time": "2017-07-14T06:38:56+00:00"
         },
         {
             "name": "vitkutny/version",
@@ -923,7 +856,7 @@
     "packages-dev": [
         {
             "name": "doctrine/instantiator",
-            "version": "dev-master",
+            "version": "1.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/instantiator.git",
@@ -977,7 +910,7 @@
         },
         {
             "name": "myclabs/deep-copy",
-            "version": "1.x-dev",
+            "version": "1.6.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/myclabs/DeepCopy.git",
@@ -1019,16 +952,16 @@
         },
         {
             "name": "phar-io/manifest",
-            "version": "dev-master",
+            "version": "1.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phar-io/manifest.git",
-                "reference": "014feadb268809af7c8e2f7ccd396b8494901f58"
+                "reference": "2df402786ab5368a0169091f61a7c1e0eb6852d0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phar-io/manifest/zipball/014feadb268809af7c8e2f7ccd396b8494901f58",
-                "reference": "014feadb268809af7c8e2f7ccd396b8494901f58",
+                "url": "https://api.github.com/repos/phar-io/manifest/zipball/2df402786ab5368a0169091f61a7c1e0eb6852d0",
+                "reference": "2df402786ab5368a0169091f61a7c1e0eb6852d0",
                 "shasum": ""
             },
             "require": {
@@ -1070,7 +1003,7 @@
                 }
             ],
             "description": "Component for reading phar.io manifest information from a PHP Archive (PHAR)",
-            "time": "2017-04-07T07:07:10+00:00"
+            "time": "2017-03-05T18:14:27+00:00"
         },
         {
             "name": "phar-io/version",
@@ -1121,16 +1054,16 @@
         },
         {
             "name": "phpdocumentor/reflection-common",
-            "version": "dev-master",
+            "version": "1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpDocumentor/ReflectionCommon.git",
-                "reference": "a046af61c36e9162372f205de091a1cab7340f1c"
+                "reference": "144c307535e82c8fdcaacbcfc1d6d8eeb896687c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpDocumentor/ReflectionCommon/zipball/a046af61c36e9162372f205de091a1cab7340f1c",
-                "reference": "a046af61c36e9162372f205de091a1cab7340f1c",
+                "url": "https://api.github.com/repos/phpDocumentor/ReflectionCommon/zipball/144c307535e82c8fdcaacbcfc1d6d8eeb896687c",
+                "reference": "144c307535e82c8fdcaacbcfc1d6d8eeb896687c",
                 "shasum": ""
             },
             "require": {
@@ -1171,7 +1104,7 @@
                 "reflection",
                 "static analysis"
             ],
-            "time": "2017-04-30T11:58:12+00:00"
+            "time": "2015-12-27T11:43:31+00:00"
         },
         {
             "name": "phpdocumentor/reflection-docblock",
@@ -1267,16 +1200,16 @@
         },
         {
             "name": "phpspec/prophecy",
-            "version": "dev-master",
+            "version": "v1.7.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpspec/prophecy.git",
-                "reference": "420d44c5534bbf269e85e6213446e8284d53c6c7"
+                "reference": "93d39f1f7f9326d746203c7c056f300f7f126073"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpspec/prophecy/zipball/420d44c5534bbf269e85e6213446e8284d53c6c7",
-                "reference": "420d44c5534bbf269e85e6213446e8284d53c6c7",
+                "url": "https://api.github.com/repos/phpspec/prophecy/zipball/93d39f1f7f9326d746203c7c056f300f7f126073",
+                "reference": "93d39f1f7f9326d746203c7c056f300f7f126073",
                 "shasum": ""
             },
             "require": {
@@ -1293,7 +1226,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.7.x-dev"
+                    "dev-master": "1.6.x-dev"
                 }
             },
             "autoload": {
@@ -1326,56 +1259,20 @@
                 "spy",
                 "stub"
             ],
-            "time": "2017-07-19T07:44:25+00:00"
-        },
-        {
-            "name": "phpstan/phpstan-shim",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/phpstan/phpstan-shim.git",
-                "reference": "48c8ef92966a0caf7ea55eb48792b44a48c2b576"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/phpstan/phpstan-shim/zipball/48c8ef92966a0caf7ea55eb48792b44a48c2b576",
-                "reference": "48c8ef92966a0caf7ea55eb48792b44a48c2b576",
-                "shasum": ""
-            },
-            "require": {
-                "php": "~7.0"
-            },
-            "provide": {
-                "phpstan/phpstan": "0.8"
-            },
-            "bin": [
-                "phpstan.phar"
-            ],
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "0.8-dev"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "description": "PHPStan Phar distribution",
-            "time": "2017-07-23 20:19:07"
+            "time": "2017-03-02T20:05:34+00:00"
         },
         {
             "name": "phpunit/php-code-coverage",
-            "version": "dev-master",
+            "version": "5.2.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/php-code-coverage.git",
-                "reference": "c3a4de854cbd91af0993d4be36c3a4db8ef24f6b"
+                "reference": "8ed1902a57849e117b5651fc1a5c48110946c06b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/php-code-coverage/zipball/c3a4de854cbd91af0993d4be36c3a4db8ef24f6b",
-                "reference": "c3a4de854cbd91af0993d4be36c3a4db8ef24f6b",
+                "url": "https://api.github.com/repos/sebastianbergmann/php-code-coverage/zipball/8ed1902a57849e117b5651fc1a5c48110946c06b",
+                "reference": "8ed1902a57849e117b5651fc1a5c48110946c06b",
                 "shasum": ""
             },
             "require": {
@@ -1384,7 +1281,7 @@
                 "php": "^7.0",
                 "phpunit/php-file-iterator": "^1.4.2",
                 "phpunit/php-text-template": "^1.2.1",
-                "phpunit/php-token-stream": "^2.0",
+                "phpunit/php-token-stream": "^1.4.11 || ^2.0",
                 "sebastian/code-unit-reverse-lookup": "^1.0.1",
                 "sebastian/environment": "^3.0",
                 "sebastian/version": "^2.0.1",
@@ -1426,11 +1323,11 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2017-08-03T14:42:12+00:00"
+            "time": "2017-08-03T12:40:43+00:00"
         },
         {
             "name": "phpunit/php-file-iterator",
-            "version": "dev-master",
+            "version": "1.4.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/php-file-iterator.git",
@@ -1518,16 +1415,16 @@
         },
         {
             "name": "phpunit/php-timer",
-            "version": "dev-master",
+            "version": "1.0.9",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/php-timer.git",
-                "reference": "d107f347d368dd8a384601398280c7c608390ab7"
+                "reference": "3dcf38ca72b158baf0bc245e9184d3fdffa9c46f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/php-timer/zipball/d107f347d368dd8a384601398280c7c608390ab7",
-                "reference": "d107f347d368dd8a384601398280c7c608390ab7",
+                "url": "https://api.github.com/repos/sebastianbergmann/php-timer/zipball/3dcf38ca72b158baf0bc245e9184d3fdffa9c46f",
+                "reference": "3dcf38ca72b158baf0bc245e9184d3fdffa9c46f",
                 "shasum": ""
             },
             "require": {
@@ -1563,20 +1460,20 @@
             "keywords": [
                 "timer"
             ],
-            "time": "2017-03-07T15:42:04+00:00"
+            "time": "2017-02-26T11:10:40+00:00"
         },
         {
             "name": "phpunit/php-token-stream",
-            "version": "dev-master",
+            "version": "2.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/php-token-stream.git",
-                "reference": "8c0bca4db90bb0a0b400ad8e90fee3210081701d"
+                "reference": "ecb0b2cdaa0add708fe6f329ef65ae0c5225130b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/php-token-stream/zipball/8c0bca4db90bb0a0b400ad8e90fee3210081701d",
-                "reference": "8c0bca4db90bb0a0b400ad8e90fee3210081701d",
+                "url": "https://api.github.com/repos/sebastianbergmann/php-token-stream/zipball/ecb0b2cdaa0add708fe6f329ef65ae0c5225130b",
+                "reference": "ecb0b2cdaa0add708fe6f329ef65ae0c5225130b",
                 "shasum": ""
             },
             "require": {
@@ -1612,20 +1509,20 @@
             "keywords": [
                 "tokenizer"
             ],
-            "time": "2017-08-03T14:21:49+00:00"
+            "time": "2017-08-03T14:17:41+00:00"
         },
         {
             "name": "phpunit/phpunit",
-            "version": "dev-master",
+            "version": "6.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "91ed478c167dbb309fa5125bfd60162a833ccdcc"
+                "reference": "9501bab711403a1ab5b8378a8adb4ec3db3debdb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/91ed478c167dbb309fa5125bfd60162a833ccdcc",
-                "reference": "91ed478c167dbb309fa5125bfd60162a833ccdcc",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/9501bab711403a1ab5b8378a8adb4ec3db3debdb",
+                "reference": "9501bab711403a1ab5b8378a8adb4ec3db3debdb",
                 "shasum": ""
             },
             "require": {
@@ -1670,7 +1567,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "6.4.x-dev"
+                    "dev-master": "6.3.x-dev"
                 }
             },
             "autoload": {
@@ -1696,11 +1593,11 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2017-08-04T05:51:43+00:00"
+            "time": "2017-08-04T05:20:39+00:00"
         },
         {
             "name": "phpunit/phpunit-mock-objects",
-            "version": "dev-master",
+            "version": "4.0.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit-mock-objects.git",
@@ -1759,16 +1656,16 @@
         },
         {
             "name": "sebastian/code-unit-reverse-lookup",
-            "version": "dev-master",
+            "version": "1.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/code-unit-reverse-lookup.git",
-                "reference": "3488be0a7b346cd6e5361510ed07e88f9bea2e88"
+                "reference": "4419fcdb5eabb9caa61a27c7a1db532a6b55dd18"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/code-unit-reverse-lookup/zipball/3488be0a7b346cd6e5361510ed07e88f9bea2e88",
-                "reference": "3488be0a7b346cd6e5361510ed07e88f9bea2e88",
+                "url": "https://api.github.com/repos/sebastianbergmann/code-unit-reverse-lookup/zipball/4419fcdb5eabb9caa61a27c7a1db532a6b55dd18",
+                "reference": "4419fcdb5eabb9caa61a27c7a1db532a6b55dd18",
                 "shasum": ""
             },
             "require": {
@@ -1800,11 +1697,11 @@
             ],
             "description": "Looks up which function or method a line of code belongs to",
             "homepage": "https://github.com/sebastianbergmann/code-unit-reverse-lookup/",
-            "time": "2017-03-04T10:23:55+00:00"
+            "time": "2017-03-04T06:30:41+00:00"
         },
         {
             "name": "sebastian/comparator",
-            "version": "dev-master",
+            "version": "2.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/comparator.git",
@@ -1868,7 +1765,7 @@
         },
         {
             "name": "sebastian/diff",
-            "version": "dev-master",
+            "version": "2.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/diff.git",
@@ -1920,7 +1817,7 @@
         },
         {
             "name": "sebastian/environment",
-            "version": "dev-master",
+            "version": "3.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/environment.git",
@@ -1970,7 +1867,7 @@
         },
         {
             "name": "sebastian/exporter",
-            "version": "dev-master",
+            "version": "3.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/exporter.git",
@@ -2037,7 +1934,7 @@
         },
         {
             "name": "sebastian/global-state",
-            "version": "dev-master",
+            "version": "2.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/global-state.git",
@@ -2088,7 +1985,7 @@
         },
         {
             "name": "sebastian/object-enumerator",
-            "version": "dev-master",
+            "version": "3.0.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/object-enumerator.git",
@@ -2135,7 +2032,7 @@
         },
         {
             "name": "sebastian/object-reflector",
-            "version": "dev-master",
+            "version": "1.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/object-reflector.git",
@@ -2180,16 +2077,16 @@
         },
         {
             "name": "sebastian/recursion-context",
-            "version": "dev-master",
+            "version": "3.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/recursion-context.git",
-                "reference": "a0e54bc9bf04e2c5b302236984cebc277631f0f1"
+                "reference": "5b0cd723502bac3b006cbf3dbf7a1e3fcefe4fa8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/recursion-context/zipball/a0e54bc9bf04e2c5b302236984cebc277631f0f1",
-                "reference": "a0e54bc9bf04e2c5b302236984cebc277631f0f1",
+                "url": "https://api.github.com/repos/sebastianbergmann/recursion-context/zipball/5b0cd723502bac3b006cbf3dbf7a1e3fcefe4fa8",
+                "reference": "5b0cd723502bac3b006cbf3dbf7a1e3fcefe4fa8",
                 "shasum": ""
             },
             "require": {
@@ -2229,20 +2126,20 @@
             ],
             "description": "Provides functionality to recursively process PHP variables",
             "homepage": "http://www.github.com/sebastianbergmann/recursion-context",
-            "time": "2017-03-07T15:09:59+00:00"
+            "time": "2017-03-03T06:23:57+00:00"
         },
         {
             "name": "sebastian/resource-operations",
-            "version": "dev-master",
+            "version": "1.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/resource-operations.git",
-                "reference": "fadc83f7c41fb2924e542635fea47ae546816ece"
+                "reference": "ce990bb21759f94aeafd30209e8cfcdfa8bc3f52"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/resource-operations/zipball/fadc83f7c41fb2924e542635fea47ae546816ece",
-                "reference": "fadc83f7c41fb2924e542635fea47ae546816ece",
+                "url": "https://api.github.com/repos/sebastianbergmann/resource-operations/zipball/ce990bb21759f94aeafd30209e8cfcdfa8bc3f52",
+                "reference": "ce990bb21759f94aeafd30209e8cfcdfa8bc3f52",
                 "shasum": ""
             },
             "require": {
@@ -2271,11 +2168,11 @@
             ],
             "description": "Provides a list of PHP built-in functions that operate on resources",
             "homepage": "https://www.github.com/sebastianbergmann/resource-operations",
-            "time": "2016-10-03T07:43:09+00:00"
+            "time": "2015-07-28T20:34:47+00:00"
         },
         {
             "name": "sebastian/version",
-            "version": "dev-master",
+            "version": "2.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/version.git",
@@ -2358,16 +2255,16 @@
         },
         {
             "name": "webmozart/assert",
-            "version": "dev-master",
+            "version": "1.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/webmozart/assert.git",
-                "reference": "4a8bf11547e139e77b651365113fc12850c43d9a"
+                "reference": "2db61e59ff05fe5126d152bd0655c9ea113e550f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/webmozart/assert/zipball/4a8bf11547e139e77b651365113fc12850c43d9a",
-                "reference": "4a8bf11547e139e77b651365113fc12850c43d9a",
+                "url": "https://api.github.com/repos/webmozart/assert/zipball/2db61e59ff05fe5126d152bd0655c9ea113e550f",
+                "reference": "2db61e59ff05fe5126d152bd0655c9ea113e550f",
                 "shasum": ""
             },
             "require": {
@@ -2404,11 +2301,11 @@
                 "check",
                 "validate"
             ],
-            "time": "2016-11-23T20:04:41+00:00"
+            "time": "2016-11-23T20:04:58+00:00"
         }
     ],
     "aliases": [],
-    "minimum-stability": "dev",
+    "minimum-stability": "alpha",
     "stability-flags": {
         "vitkutny/version": 20
     },
