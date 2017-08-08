@@ -9,6 +9,11 @@ services:
 
 	- App\DisqusModule\Controls\DisqusControlFactory
 
+decorator:
+	Nette\Application\UI\Presenter:
+		setup:
+			- addComponent(@App\DisqusModule\Controls\DisqusControlFactory::create(), 'disqus')
+
 http:
 	csp:
 		img-src: [referrer.disqus.com, c.disquscdn.com]

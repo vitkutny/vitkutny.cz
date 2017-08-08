@@ -11,8 +11,6 @@ use Nette\Bridges\ApplicationLatte\Template;
 final class FeedPresenter extends Presenter
 {
 
-	use BasePresenter;
-
 	/**
 	 * @var PostRepository
 	 */

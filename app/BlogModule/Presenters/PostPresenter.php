@@ -14,8 +14,6 @@ use Nette\Bridges\ApplicationLatte\Template;
 final class PostPresenter extends Presenter
 {
 
-	use BasePresenter;
-
 	/**
 	 * @var PostRepository
 	 */

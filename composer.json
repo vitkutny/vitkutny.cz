@@ -10,7 +10,8 @@
 		"tracy/tracy": "^2.4",
 		"nette/caching": "^3.0",
 		"vitkutny/version": "dev-master",
-		"erusev/parsedown": "^1.6.2"
+		"erusev/parsedown": "^1.6.2",
+		"nette/robot-loader": "^3.0"
 	},
 	"require-dev": {
 		"phpunit/phpunit": "^6.3"
