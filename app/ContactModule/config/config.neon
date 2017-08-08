@@ -10,3 +10,8 @@ services:
 			- addLink(App\ContactModule\ContactLink('Facebook', 'https://facebook.com/vitkutny', 'facebook'))
 			- addLink(App\ContactModule\ContactLink('vit@kutny.cz', 'mailto:vit@kutny.cz', 'envelope'))
 			- addLink(App\ContactModule\ContactLink('+420 605 531 830', 'tel:+420605531830', 'phone'))
+
+decorator:
+	Nette\Application\UI\Presenter:
+		setup:
+			- "?->getTemplate()->add('contact', ?)"(@self, @App\ContactModule\Contact)

@@ -10,8 +10,6 @@ use Nette\Application\UI\Presenter;
 final class HomepagePresenter extends Presenter
 {
 
-	use BasePresenter;
-
 	/**
 	 * @var PostListControlFactory
 	 */

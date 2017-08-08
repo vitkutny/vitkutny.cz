@@ -3,6 +3,7 @@
 namespace Tests\Presenters;
 
 use App\BlogModule\Post\PostRepository;
+use App\ContactModule\Contact;
 use App\Presenters\HomepagePresenter;
 use Nette\Application\IPresenterFactory;
 use Nette\Application\Request;
@@ -29,10 +30,14 @@ final class HomepagePresenterTest extends TestCase
 		$contact->setAvatar($avatar = ContactAvatarTest::createContactAvatar());
 		$contact->addLink($link = ContactLinkTest::createContactLink());
 
-		$presenter = $this->createPresenter();
-		$presenter->injectContact($contact);
+		$container = BootstrapTest::createContainer();
+		$serviceName = current($container->findByType(Contact::class));
+		$this->assertInternalType('string', $serviceName);
+		$container->removeService($serviceName);
+		$container->addService($serviceName, $contact);
+
 		/** @var TextResponse $response */
-		$response = $presenter->run(new Request(self::NAME, IRequest::GET));
+		$response = $this->createPresenter($container)->run(new Request(self::NAME, IRequest::GET));
 
 		$this->assertInstanceOf(TextResponse::class, $response);
 		$source = (string) $response->getSource();
