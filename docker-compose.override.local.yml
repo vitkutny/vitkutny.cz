@@ -2,8 +2,6 @@ version: '3'
 
 services:
   nginx:
-    #nginx-proxy
-    network_mode: bridge
     environment:
       VIRTUAL_HOST: vitkutny.local
 
@@ -11,10 +9,13 @@ services:
     volumes:
      - ./docker/php-fpm/xdebug.ini:/usr/local/etc/php/conf.d/xdebug.ini
     environment:
-      XDEBUG_CONFIG: remote_host=1.2.3.4 #host IP ($ ipconfig getifaddr en0)
+      XDEBUG_CONFIG: remote_host=docker.for.mac.localhost
       DEBUG_MODE: 1@172.17.0.2
-    #nginx-proxy
-    network_mode: bridge
 
   composer:
     command: install --ignore-platform-reqs
+
+networks:
+  default:
+    external:
+      name: nginx-proxy
