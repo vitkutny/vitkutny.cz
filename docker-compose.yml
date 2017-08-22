@@ -25,6 +25,7 @@ services:
         command: install --ignore-platform-reqs --no-dev
         volumes:
           - ./:/app
+          - ~/.composer/cache:/tmp/cache
 
     webpack:
         image: node:alpine
