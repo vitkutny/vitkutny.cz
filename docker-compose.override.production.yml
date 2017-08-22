@@ -1,0 +1,11 @@
+version: '3'
+
+services:
+  nginx:
+    environment:
+      VIRTUAL_HOST: vitkutny.cz,www.vitkutny.cz,kutny.cz,www.kutny.cz,195.181.220.218
+
+networks:
+  default:
+    external:
+      name: nginx-proxy
