@@ -6,7 +6,7 @@ services:
     - docker
 
 before_install:
-    - cp docker-compose.override.local.yml docker-compose.override.yml
+    - cp docker-compose.override.localhost.yml docker-compose.override.yml
     - docker network create nginx-proxy
     - curl -LO https://github.com/satooshi/php-coveralls/releases/download/v1.0.1/coveralls.phar
     - curl -LO https://github.com/phpstan/phpstan-shim/raw/0.8/phpstan.phar
