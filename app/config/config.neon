@@ -15,6 +15,7 @@ http:
 		img-src: [self, 'data:', s.gravatar.com]
 		style-src: [self, fonts.googleapis.com]
 		font-src: [self, fonts.gstatic.com]
+		child-src: [www.slideshare.net, www.youtube.com]
 		script-src: [nonce]
 		object-src: [none]
 		base-uri: [none]
