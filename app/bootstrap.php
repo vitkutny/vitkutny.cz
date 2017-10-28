@@ -6,7 +6,6 @@ use Nette\DI\Container;
 
 return (function (): Container {
 	$configurator = new Configurator;
-	//var_dump(getenv('DEBUG_MODE'));
 	if (($debugMode = filter_var(getenv('DEBUG_MODE'), FILTER_VALIDATE_BOOLEAN, FILTER_NULL_ON_FAILURE)) !== NULL) {
 		$configurator->setDebugMode($debugMode);
 	} else {
