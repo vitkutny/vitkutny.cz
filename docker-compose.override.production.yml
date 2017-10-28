@@ -5,6 +5,9 @@ services:
     environment:
       VIRTUAL_HOST: vitkutny.cz,www.vitkutny.cz,kutny.cz,www.kutny.cz,195.181.220.218
 
+  composer:
+    command: install --no-dev
+
 networks:
   default:
     external:

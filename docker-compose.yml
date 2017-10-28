@@ -9,11 +9,11 @@ services:
           - ./:/var/www/html
           - ./docker/nginx/nginx.conf:/etc/nginx/conf.d/default.conf
         links:
-          - php-fpm
+          - web
         restart: on-failure
 
-    php-fpm:
-        build: ./docker/php-fpm
+    web:
+        image: vitkutny/docker:vitkutny.cz_web
         volumes:
           - ./:/var/www/html
         expose:
@@ -21,11 +21,11 @@ services:
         restart: on-failure
 
     composer:
-        image: composer:latest
-        command: install --ignore-platform-reqs --no-dev
+        image: vitkutny/docker:vitkutny.cz_web
+        entrypoint: composer
+        command: install
         volumes:
-          - ./:/app
-          - ~/.composer/cache:/tmp/cache
+          - ./:/var/www/html
 
     webpack:
         image: node:alpine

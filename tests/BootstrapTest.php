@@ -12,9 +12,19 @@ final class BootstrapTest extends TestCase
 	private const ENV_DEBUG_MODE = 'DEBUG_MODE';
 
 
-	public static function createContainer(): Container
+	public static function createContainer(string $debugMode = NULL): Container
 	{
-		return require __DIR__ . '/../app/bootstrap.php';
+		if ($debugMode === NULL) {
+			putenv(self::ENV_DEBUG_MODE);
+		} else {
+			putenv(sprintf('%s=%s', self::ENV_DEBUG_MODE, $debugMode));
+		}
+
+		try {
+			return require __DIR__ . '/../app/bootstrap.php';
+		} finally {
+			putenv(self::ENV_DEBUG_MODE);
+		}
 	}
 
 
@@ -28,12 +38,10 @@ final class BootstrapTest extends TestCase
 
 	public function testIsDebugMode(): void
 	{
-		putenv(sprintf('%s=%s', self::ENV_DEBUG_MODE, php_uname('n')));
-		try {
-			$container = self::createContainer();
-		} finally {
-			putenv(self::ENV_DEBUG_MODE);
-		}
+		$container = self::createContainer('on');
+		$parameters = $container->getParameters();
+		$this->assertEquals(TRUE, $parameters['debugMode'] ?? NULL);
+		$container = self::createContainer(php_uname('n'));
 		$parameters = $container->getParameters();
 		$this->assertEquals(TRUE, $parameters['debugMode'] ?? NULL);
 	}

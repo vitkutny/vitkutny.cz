@@ -6,20 +6,18 @@ services:
     - docker
 
 before_install:
-    - cp docker-compose.override.localhost.yml docker-compose.override.yml
+    - envsubst < docker-compose.override.travis.yml > docker-compose.override.yml
     - docker network create nginx-proxy
     - curl -LO https://github.com/satooshi/php-coveralls/releases/download/v1.0.1/coveralls.phar
     - curl -LO https://github.com/phpstan/phpstan-shim/raw/0.8/phpstan.phar
 
 install:
+    - docker-compose up -d web
     - docker-compose run composer
 
-before_script:
-    - docker-compose build php-fpm
-
 script:
-    - docker-compose run php-fpm php phpstan.phar analyse -l 7 app tests
-    - docker-compose run php-fpm vendor/bin/phpunit tests --coverage-clover log/coverage.xml --whitelist app
+    - docker-compose exec -T web php phpstan.phar analyse -l 7 app tests
+    - docker-compose exec -T web vendor/bin/phpunit tests --coverage-clover log/coverage.xml --whitelist app
 
 after_script:
-    - docker-compose run -e TRAVIS=$TRAVIS -e TRAVIS_JOB_ID=$TRAVIS_JOB_ID php-fpm sh -cl "apk add git && php coveralls.phar -v"
+    - docker-compose exec web php coveralls.phar -v
