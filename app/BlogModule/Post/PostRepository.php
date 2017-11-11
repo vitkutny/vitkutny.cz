@@ -10,7 +10,10 @@ use SplFileInfo;
 final class PostRepository
 {
 
-	private const DATETIME_PATTERN = '#^\d{4}-\d{2}-\d{2}#';
+	private const BASENAME_PATTERN = '[a-z-]+';
+	private const DATE_PATTERN = '\d{4}/\d{2}/\d{2}';
+	private const FILE_PATTERN = '(?<id>(?<date>' . self::DATE_PATTERN . ')/' . self::BASENAME_PATTERN . ')';
+	public const ROUTE_PATTERN = self::DATE_PATTERN . '/' . self::BASENAME_PATTERN;
 
 	/**
 	 * @var string
@@ -49,7 +52,7 @@ final class PostRepository
 	public function findAll(): PostCollection
 	{
 		try {
-			$files = iterator_to_array(Finder::findFiles('*')->in($this->directory));
+			$files = iterator_to_array(Finder::findFiles('*/*/*/*')->from($this->directory));
 		} catch (\UnexpectedValueException $exception) {
 			$files = []; //failed to open dir
 		}
@@ -58,7 +61,10 @@ final class PostRepository
 		foreach ($files as $file) {
 			$postContentParser = $this->postContentParsers[$file->getExtension()] ?? NULL;
 			if ($postContentParser) {
-				$posts[$file->getBasename()] = $this->createPost($file, $postContentParser);
+				$post = $this->createPost($file, $postContentParser);
+				if ($post) {
+					$posts[$post->getId()] = $post;
+				}
 			}
 		}
 		krsort($posts);
@@ -67,13 +73,18 @@ final class PostRepository
 	}
 
 
-	private function createPost(SplFileInfo $file, PostContentParser $postContentParser): Post
+	private function createPost(SplFileInfo $file, PostContentParser $postContentParser): ?Post
 	{
-		$id = $file->getBasename(sprintf('.%s', $file->getExtension()));
-		$datetime = new DateTimeImmutable(preg_match(self::DATETIME_PATTERN, $id, $matches) ? current($matches) : 'now');
-		$content = trim(implode(NULL, iterator_to_array($file->openFile())));
+		$pattern = sprintf('#%s.%s$#', self::FILE_PATTERN, preg_quote($postContentParser->getExtension(), '#'));
+		if ( ! preg_match($pattern, $file->getPathname(), $matches)) {
+			return NULL;
+		}
 
-		return new Post($id, $datetime, $postContentParser->parse($content));
+		return new Post(
+			$matches['id'],
+			new DateTimeImmutable($matches['date']),
+			$postContentParser->parse(trim(implode(NULL, iterator_to_array($file->openFile()))))
+		);
 	}
 
 }

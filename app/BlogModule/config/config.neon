@@ -21,6 +21,7 @@ routing:
 			post:
 				filterIn: [@App\BlogModule\Post\PostRepository, getById]
 				filterOut: null
+				pattern: ::constant(App\BlogModule\Post\PostRepository::ROUTE_PATTERN)
 			module: Blog
 			presenter: Post
 			action: default
