@@ -18,3 +18,10 @@
   width: 150px;
   height: 150px;
 }
+
+body {
+  padding-bottom: $jumbotron-padding;
+  @include media-breakpoint-up(sm) {
+    padding-bottom: ($jumbotron-padding * 2);
+  }
+}
