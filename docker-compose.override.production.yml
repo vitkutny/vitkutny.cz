@@ -4,6 +4,7 @@ services:
   nginx:
     environment:
       VIRTUAL_HOST: vitkutny.cz,www.vitkutny.cz,kutny.cz,www.kutny.cz,195.181.220.218
+      HSTS: max-age=63072000; includeSubDomains; preload
 
   composer:
     command: install --no-dev
